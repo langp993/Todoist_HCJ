@@ -13,9 +13,22 @@
     </head>
 
     <body>
-        <p class="Colorparagraph">Hello Front Row Viewers!</p>
-        <p>Hello Front Row Viewers!</p>
-        <p>Hello Front Row Viewers!</p>
+
+        <!-- <div id="googleMap" style="width:100%;height:400px;"></div> -->
+
+        <script>
+        function myMap() {
+        var mapProp= {
+          center:new google.maps.LatLng(51.508742,-0.120850),
+          zoom:5,
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+        }
+        </script>
+        
+        
+  
+   
 
         <div id="myDIV" class="header">
             <h2>My To Do List</h2>
@@ -31,11 +44,23 @@
             <li>Read a book</li>
             <li>Organize office</li>
           </ul>
+
+
+          <div class="hellobox">
+            <div id="googleMap" style="width:100%;height:400px;"></div>
+
+            <p class="Colorparagraph">Hello Front Row Viewers!</p>
+            <p>Hello Front Row Viewers!</p>
+            <p>Hello Front Row Viewers!</p>
+
+        </div>
           
 
         <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script> -->
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script> -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5SwNk404MXKIDnMKO-g1tQ_2G6jz93f8&callback=myMap"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
