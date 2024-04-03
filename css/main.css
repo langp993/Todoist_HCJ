@@ -125,4 +125,72 @@ color: white;
     background-color: #bbb;
   }
 
-  
+
+  //////ChatGPT
+
+
+
+.input-container {
+  display: flex;
+  margin-bottom: 40px; /* Add margin to the bottom of the input container */
+}
+
+#todoInput {
+  flex: 1; /* Grow to fill available space */
+  border: 1px solid #ccc; /* Add a solid border with color #ccc */
+  padding: 5px; /* Add padding inside the input field */
+  box-sizing: border-box; /* Include padding and border in the input field's total width */
+  margin-right: 5px; /* Add margin to the right of the input field */
+}
+
+#todoInput:focus {
+  outline: none; /* Remove the outline when input field is focused */
+}
+
+button {
+  border: none; /* Remove default button border */
+  padding: 5px 10px; /* Add padding to the button */
+  background-color: #007bff; /* Set button background color */
+  color: #fff; /* Set text color to white */
+  cursor: pointer; /* Show pointer cursor on hover */
+}
+
+#todoList {
+  margin: 40px; /* Add margin to the bottom of the input field */
+  background-color: pink;
+}
+
+.completed {
+  text-decoration: line-through; /* Add line-through to completed todo items */
+}
+
+/* #todoInput {
+  margin-bottom: 10px; /* Add margin to the bottom of the input field */
+  border: 1px solid #ccc; /* Add a solid border with color #ccc */
+  padding: 5px; /* Add padding inside the input field */
+  box-sizing: border-box; /* Include padding and border in the input field's total width */
+} */
+
+///
+
+.input-container {
+  margin-bottom: 10px; /* Add margin to the bottom of the input container */
+}
+
+.lists-container {
+  margin-bottom: 10px; /* Add margin to the bottom of the lists container */
+  margin-top: 70px; /* Add margin to the bottom of the lists container */
+  background-color: pink;
+
+
+}
+
+button {
+  margin-right: 5px; /* Add margin to the right of each button */
+}
+
+.completed {
+  text-decoration: line-through; /* Add line-through to completed todo items */
+  margin-top: 20px; /* Add margin to the bottom of the lists container */
+
+}

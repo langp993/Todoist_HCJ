@@ -16,7 +16,7 @@
 
         <!-- <div id="googleMap" style="width:100%;height:400px;"></div> -->
 
-        <script>
+        <!-- <script>
         function myMap() {
         var mapProp= {
           center:new google.maps.LatLng(51.508742,-0.120850),
@@ -24,13 +24,11 @@
         };
         var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
         }
-        </script>
-        
-        
+        </script> -->
   
    
 
-        <div id="myDIV" class="header">
+        <!-- <div id="myDIV" class="header">
             <h2>My To Do List</h2>
             <input type="text" id="myInput" placeholder="Title...">
             <span onclick="newElement()" class="addBtn">Add</span>
@@ -43,17 +41,48 @@
             <li>Buy eggs</li>
             <li>Read a book</li>
             <li>Organize office</li>
-          </ul>
+          </ul> -->
+
+          
+///!SECTION TO DO LIST APP
 
 
-          <div class="hellobox">
+          <h1>Todo List</h1>
+          <input type="text" id="todoInput" placeholder="Add new todo">
+          <button onclick="addTodo()">Add</button>
+          <!-- <ul id="todoList"></ul> -->
+          
+   
+        <ul id="activeList"></ul>
+        <ul id="completedList" style="display: none;"></ul>
+        
+        <div class="lists-container">
+          <button onclick="showActive()">Active</button>
+          <button onclick="showCompleted()">Completed</button>
+      </div>
+
+///////!SECTION ChatGPT
+
+
+
+          <!-- <div class="hellobox">
             <div id="googleMap" style="width:100%;height:400px;"></div>
 
             <p class="Colorparagraph">Hello Front Row Viewers!</p>
             <p>Hello Front Row Viewers!</p>
             <p>Hello Front Row Viewers!</p>
 
-        </div>
+        </div> -->
+
+
+///////!SECTION ChatGPT
+
+
+
+        <h1>My Favorite Bands</h1>
+        <ul id="band-list"></ul>
+
+  
           
 
         <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -64,3 +93,4 @@
         <script src="js/main.js"></script>
     </body>
 </html>
+
