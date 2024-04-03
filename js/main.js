@@ -77,6 +77,11 @@ function initMap() {
     center: { lat: -34.397, lng: 150.644 },
     zoom: 8,
   });
+
+  // Initialize Google Places Autocomplete for location input field
+  const locationInput = document.getElementById("locationInput");
+  const autocomplete = new google.maps.places.Autocomplete(locationInput);
+  autocomplete.setFields(["geometry"]);
 }
 
 // Function to add a new todo
@@ -91,73 +96,91 @@ function addTodo() {
 
   // If the input is not empty
   if (todoText !== "" && locationText !== "") {
-    // Create a new list item
-    const listItem = document.createElement("li");
+    // Use Geocoding service to convert address to coordinates
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ address: locationText }, function (results, status) {
+      if (status === google.maps.GeocoderStatus.OK && results[0]) {
+        const lat = results[0].geometry.location.lat();
+        const lng = results[0].geometry.location.lng();
 
-    // Create a span element for the todo text
-    const todoSpan = document.createElement("span");
-    todoSpan.textContent = todoText;
+        // Create a new list item
+        const listItem = document.createElement("li");
 
-    // Create a span element for the location text
-    const locationSpan = document.createElement("span");
-    locationSpan.textContent = locationText;
+        // Create a span element for the todo text
+        const todoSpan = document.createElement("span");
+        todoSpan.textContent = todoText;
 
-    // Create a button for deleting the todo
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "❌";
+        // Create a span element for the location text
+        const locationSpan = document.createElement("span");
+        // locationSpan.textContent = locationText;
+        locationSpan.textContent = `Location: (${lat}, ${lng})`;
 
-    // Set styles for positioning the delete button
-    deleteButton.style.marginLeft = "auto"; // Pushes the button to the right
-    deleteButton.style.border = "none"; // Removes default button border
+        // Create a button for deleting the todo
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "❌";
 
-    deleteButton.onclick = function () {
-      listItem.parentElement.removeChild(listItem);
-    };
+        // Set styles for positioning the delete button
+        deleteButton.style.marginLeft = "auto"; // Pushes the button to the right
+        deleteButton.style.border = "none"; // Removes default button border
 
-    // // Create a button for adding subtask
-    // const subtaskButton = document.createElement("button");
-    // subtaskButton.textContent = "+";
+        deleteButton.onclick = function () {
+          listItem.parentElement.removeChild(listItem);
+        };
 
-    // // Set styles for positioning the subtask button
-    // subtaskButton.style.marginLeft = "5px"; // Add margin to the left of the subtask button
-    // subtaskButton.style.border = "none"; // Removes default button border
+        // // Create a button for adding subtask
+        // const subtaskButton = document.createElement("button");
+        // subtaskButton.textContent = "+";
 
-    // subtaskButton.onclick = function () {
-    //   const subtaskText = prompt("Enter subtask:");
-    //   if (subtaskText) {
-    //     const subtaskListItem = document.createElement("li");
-    //     const subtaskSpan = document.createElement("span");
-    //     subtaskSpan.textContent = subtaskText;
-    //     subtaskListItem.appendChild(subtaskSpan);
-    //     listItem.appendChild(subtaskListItem);
-    //   }
-    // };
+        // // Set styles for positioning the subtask button
+        // subtaskButton.style.marginLeft = "5px"; // Add margin to the left of the subtask button
+        // subtaskButton.style.border = "none"; // Removes default button border
 
-    // Append the todo text, delete button, and subtask button to the list item
-    listItem.appendChild(todoSpan);
-    listItem.appendChild(document.createElement("br")); // Add line break
-    listItem.appendChild(locationSpan);
-    listItem.appendChild(deleteButton);
-    // listItem.appendChild(subtaskButton);
+        // subtaskButton.onclick = function () {
+        //   const subtaskText = prompt("Enter subtask:");
+        //   if (subtaskText) {
+        //     const subtaskListItem = document.createElement("li");
+        //     const subtaskSpan = document.createElement("span");
+        //     subtaskSpan.textContent = subtaskText;
+        //     subtaskListItem.appendChild(subtaskSpan);
+        //     listItem.appendChild(subtaskListItem);
+        //   }
+        // };
 
-    // Add event listener to toggle line-through and move to completed list on click
-    listItem.addEventListener("click", function () {
-      if (activeList.contains(listItem)) {
-        activeList.removeChild(listItem);
-        completedList.appendChild(listItem);
-      } else {
-        completedList.removeChild(listItem);
+        // Append the todo text, delete button, and subtask button to the list item
+        listItem.appendChild(todoSpan);
+        listItem.appendChild(document.createElement("br")); // Add line break
+        listItem.appendChild(locationSpan);
+        listItem.appendChild(deleteButton);
+        // listItem.appendChild(subtaskButton);
+
+        // Add event listener to toggle line-through and move to completed list on click
+        listItem.addEventListener("click", function () {
+          if (activeList.contains(listItem)) {
+            activeList.removeChild(listItem);
+            completedList.appendChild(listItem);
+          } else {
+            completedList.removeChild(listItem);
+            activeList.appendChild(listItem);
+          }
+          listItem.classList.toggle("completed");
+        });
+
+        // Add the list item to the active list
         activeList.appendChild(listItem);
+
+        //     // Clear the input fields
+        //     todoInput.value = "";
+        //     locationInput.value = "";
+        //   }
+        // }
+
+        // Clear the input fields
+        todoInput.value = "";
+        locationInput.value = "";
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
       }
-      listItem.classList.toggle("completed");
     });
-
-    // Add the list item to the active list
-    activeList.appendChild(listItem);
-
-    // Clear the input fields
-    todoInput.value = "";
-    locationInput.value = "";
   }
 }
 
