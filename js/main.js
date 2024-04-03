@@ -74,7 +74,8 @@ let map;
 let markers = [];
 
 function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
+  //  map = new google.maps.Map(document.getElementById("map"), {
+  var map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -34.397, lng: 150.644 },
     // center: position,
     zoom: 8,
@@ -82,6 +83,7 @@ function initMap() {
   });
 
   //   // Create a marker and set its position
+  // var marker = new google.maps.AdvancedMarkerElement({
   var marker = new google.maps.Marker({
     position: { lat: -34.397, lng: 150.644 },
     map: map,
@@ -184,6 +186,16 @@ function addTodo() {
         //     locationInput.value = "";
         //   }
         // }
+
+        // Create AdvancedMarkerElement for the task
+        const advancedMarker = new google.maps.marker.AdvancedMarkerElement({
+          // const advancedMarker = new google.maps.marker({
+          lat: lat,
+          lng: lng,
+          map: map,
+          content: todoText,
+        });
+        markers.push(advancedMarker);
 
         // // Create marker for the task
         // createMarker(lat, lng, todoText);
