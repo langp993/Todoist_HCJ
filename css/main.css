@@ -159,7 +159,7 @@ color: white;
 
 button {
   border: none; /* Remove default button border */
-  padding: 5px 10px; /* Add padding to the button */
+  padding: 10px; /* Add padding to the button */
   background-color: #007bff; /* Set button background color */
   color: #fff; /* Set text color to white */
   cursor: pointer; /* Show pointer cursor on hover */
@@ -201,6 +201,18 @@ button {
 
 button {
   margin-right: 5px; /* Add margin to the right of each button */
+  background-color: lightskyblue; /* Set button background color */
+
+}
+
+.subtask-button {
+  border: none; /* Remove default button border */
+  padding: 15px; /* Add padding to the button */
+  background-color: grey; /* Set button background color */
+  color: #fff; /* Set text color to white */
+  cursor: pointer; /* Show pointer cursor on hover */
+  margin: 10px;
+  width: 80%;
 }
 
 .completed {

@@ -72,6 +72,7 @@ console.log("hello");
 
 let map;
 let markers = [];
+let activeList; // Store reference to the active list
 
 function initMap() {
   //  map = new google.maps.Map(document.getElementById("map"), {
@@ -160,6 +161,7 @@ function addTodo() {
         // // Create a button for adding subtask
         const subtaskButton = document.createElement("button");
         subtaskButton.textContent = "+";
+        subtaskButton.className = "subtask-button"; // Add CSS class to the button
 
         // Set styles for positioning the subtask button
         subtaskButton.style.marginLeft = "5px"; // Add margin to the left of the subtask button
@@ -278,6 +280,17 @@ function showCompleted() {
   activeList.style.display = "none";
   completedList.style.display = "block";
 }
+
+// // Function to switch to "todo" list
+// function switchToListTodo() {
+//   activeList = document.getElementById("activeList");
+// }
+
+// // Function to switch to "group" list
+// function switchToListGroup() {
+//   activeList = document.getElementById("groupList");
+//   // activeList.style.display = "none";
+// }
 
 ////////!SECTION RAUL CODE
 

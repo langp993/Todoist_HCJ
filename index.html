@@ -59,17 +59,24 @@
 
           <button id="activeButton" onclick="showActive()">Active</button>
           <button id="completedButton" onclick="showCompleted()">Completed</button>
+          <button id="groupList" onclick="switchToListGroup()">Groups</button>
+
           
           <input type="text" id="todoInput" placeholder="Add new todo">
           <input type="text" id="locationInput" placeholder="Add location">
           <button onclick="addTodo()">Add</button>
           <!-- <ul id="todoList"></ul> -->
 
+          <!-- <button onclick="switchToListGroup()">Group</button>
+          <ul id="todoList"></ul>
+          <ul id="groupList"></ul> -->
     
           
    
         <ul id="activeList"></ul>
         <ul id="completedList" style="display: none;"></ul>
+        <ul id="groupList" style="display: none;"><li>empty</li>></ul>
+
 
         <div id="map">
           <br>hello herr is a map can you see me</br>
