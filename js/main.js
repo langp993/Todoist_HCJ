@@ -188,14 +188,14 @@ function addTodo() {
         // }
 
         // Create AdvancedMarkerElement for the task
-        const advancedMarker = new google.maps.marker.AdvancedMarkerElement({
-          // const advancedMarker = new google.maps.marker({
-          lat: lat,
-          lng: lng,
-          map: map,
-          content: todoText,
-        });
-        markers.push(advancedMarker);
+        // const advancedMarker = new google.maps.marker.AdvancedMarkerElement({
+        //   // const advancedMarker = new google.maps.marker({
+        //   lat: lat,
+        //   lng: lng,
+        //   map: map,
+        //   content: todoText,
+        // });
+        // markers.push(advancedMarker);
 
         // // Create marker for the task
         // createMarker(lat, lng, todoText);

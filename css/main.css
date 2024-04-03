@@ -137,11 +137,12 @@ color: white;
 
 #todoInput {
   margin: 10px; /* Add margin to the bottom of the input container */
-  flex: 1; Grow to fill available space
+  /* flex: 1; Grow to fill available space */
   border: 1px solid #ccc; /* Add a solid border with color #ccc */
   padding: 5px; /* Add padding inside the input field */
   box-sizing: border-box; /* Include padding and border in the input field's total width */
-  margin-right: 5px; /* Add margin to the right of the input field */
+  margin-right: 20px; /* Add margin to the right of the input field */
+  width: 80%;
 }
 
 #todoInput:focus {
@@ -153,6 +154,7 @@ color: white;
   border: 1px solid #ccc; /* Add a solid border with color #ccc */
   padding: 5px; /* Add padding inside the input field */
   box-sizing: border-box; /* Include padding and border in the input field's total width */
+  width: 80%;
 }
 
 button {
@@ -161,6 +163,8 @@ button {
   background-color: #007bff; /* Set button background color */
   color: #fff; /* Set text color to white */
   cursor: pointer; /* Show pointer cursor on hover */
+  margin: 10px;
+  width: 80%;
 }
 
 #todoList {
@@ -190,6 +194,7 @@ button {
   margin-bottom: 10px; /* Add margin to the bottom of the lists container */
   margin-top: 70px; /* Add margin to the bottom of the lists container */
   background-color: pink;
+  width: 50%;
 
 
 }
