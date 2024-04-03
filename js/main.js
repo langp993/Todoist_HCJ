@@ -71,12 +71,48 @@ console.log("hello");
 ///!SECTION CHATGPT TODOLIST
 
 let map;
+let markers = [];
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -34.397, lng: 150.644 },
+    // center: position,
     zoom: 8,
+    mapId: "c32ddbe5496cadc0",
   });
+
+  //   // Create a marker and set its position
+  var marker = new google.maps.Marker({
+    position: { lat: -34.397, lng: 150.644 },
+    map: map,
+    title: "Uluru",
+  });
+
+  //   The advanced marker, positioned at Uluru
+  //   const marker = new google.maps.marker.AdvancedMarkerElement({
+  //     map,
+  //     position: position,
+  //     title: "Uluru",
+  //   });
+
+  // function initMap() {
+  //   // Define the initial position
+  //   var position = { lat: -25.344, lng: 131.036 };
+
+  //   // Create a new map instance
+  //   var map = new google.maps.Map(document.getElementById("map"), {
+  //     center: position,
+  //     zoom: 8,
+  //     mapId: "c32ddbe5496cadc0",
+  //   });
+
+  //   // Create a marker and set its position
+  //   // var marker = new google.maps.Marker({
+  //   //   position: position,
+  //   //   map: map,
+  //   //   title: "Uluru",
+  //   // });
+  // }
 
   // Initialize Google Places Autocomplete for location input field
   const locationInput = document.getElementById("locationInput");
@@ -125,6 +161,7 @@ function addTodo() {
 
         deleteButton.onclick = function () {
           listItem.parentElement.removeChild(listItem);
+          removeMarker(lat, lng);
         };
 
         // // Create a button for adding subtask
@@ -174,6 +211,9 @@ function addTodo() {
         //   }
         // }
 
+        // // Create marker for the task
+        // createMarker(lat, lng, todoText);
+
         // Clear the input fields
         todoInput.value = "";
         locationInput.value = "";
@@ -183,6 +223,39 @@ function addTodo() {
     });
   }
 }
+
+// Function to create marker
+// function createMarker(lat, lng, todoText) {
+//   const marker = new google.maps.Marker({
+//     // const marker = new google.maps.Marker.AdvancedMarkerElement({
+//     position: { lat: lat, lng: lng },
+//     map: map,
+//     title: todoText,
+//   });
+//   markers.push(marker);
+
+//   // Add infowindow
+//   const infowindow = new google.maps.InfoWindow({
+//     content: todoText,
+//   });
+//   marker.addListener("click", function () {
+//     infowindow.open(map, marker);
+//   });
+// }
+
+// // Function to remove marker
+// function removeMarker(lat, lng) {
+//   for (let i = 0; i < markers.length; i++) {
+//     if (
+//       markers[i].getPosition().lat() === lat &&
+//       markers[i].getPosition().lng() === lng
+//     ) {
+//       markers[i].setMap(null);
+//       markers.splice(i, 1);
+//       break;
+//     }
+//   }
+// }
 
 // Function to show active list
 function showActive() {
