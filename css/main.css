@@ -136,7 +136,8 @@ color: white;
 }
 
 #todoInput {
-  flex: 1; /* Grow to fill available space */
+  margin: 10px; /* Add margin to the bottom of the input container */
+  flex: 1; Grow to fill available space
   border: 1px solid #ccc; /* Add a solid border with color #ccc */
   padding: 5px; /* Add padding inside the input field */
   box-sizing: border-box; /* Include padding and border in the input field's total width */
@@ -145,6 +146,13 @@ color: white;
 
 #todoInput:focus {
   outline: none; /* Remove the outline when input field is focused */
+}
+
+#locationInput {
+  margin: 10px; /* Add margin to the bottom of the input container */
+  border: 1px solid #ccc; /* Add a solid border with color #ccc */
+  padding: 5px; /* Add padding inside the input field */
+  box-sizing: border-box; /* Include padding and border in the input field's total width */
 }
 
 button {
@@ -177,6 +185,7 @@ button {
   margin-bottom: 10px; /* Add margin to the bottom of the input container */
 }
 
+
 .lists-container {
   margin-bottom: 10px; /* Add margin to the bottom of the lists container */
   margin-top: 70px; /* Add margin to the bottom of the lists container */
@@ -193,4 +202,11 @@ button {
   text-decoration: line-through; /* Add line-through to completed todo items */
   margin-top: 20px; /* Add margin to the bottom of the lists container */
 
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+  background-color: green;
+  margin-top: 80px;
 }

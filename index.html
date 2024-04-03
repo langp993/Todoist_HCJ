@@ -10,6 +10,9 @@
         <link rel="shortcut icon" href="favicon.ico">
 
         <link rel="stylesheet" href="css/main.css">
+       
+
+
     </head>
 
     <body>
@@ -49,13 +52,20 @@
 
           <h1>Todo List</h1>
           <input type="text" id="todoInput" placeholder="Add new todo">
+          <input type="text" id="locationInput" placeholder="Add location">
           <button onclick="addTodo()">Add</button>
           <!-- <ul id="todoList"></ul> -->
           
    
         <ul id="activeList"></ul>
         <ul id="completedList" style="display: none;"></ul>
-        
+
+        <div id="map">
+          <br>hello herr is a map can you see me</br>
+          <br>hello herr is a map can you see me</br>
+          <br>hello herr is a map can you see me</br>
+        </div>
+
         <div class="lists-container">
           <button onclick="showActive()">Active</button>
           <button onclick="showCompleted()">Completed</button>
@@ -88,8 +98,8 @@
         <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script> -->
-        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script> -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5SwNk404MXKIDnMKO-g1tQ_2G6jz93f8&callback=myMap"></script>
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5SwNk404MXKIDnMKO-g1tQ_2G6jz93f8&callback=myMap"></script> -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5SwNk404MXKIDnMKO-g1tQ_2G6jz93f8&libraries=places&callback=initMap" async defer></script>
         <script src="js/main.js"></script>
     </body>
 </html>

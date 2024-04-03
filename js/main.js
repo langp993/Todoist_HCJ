@@ -70,22 +70,37 @@ console.log("hello");
 
 ///!SECTION CHATGPT TODOLIST
 
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8,
+  });
+}
+
 // Function to add a new todo
 function addTodo() {
   const todoInput = document.getElementById("todoInput");
+  const locationInput = document.getElementById("locationInput");
   const activeList = document.getElementById("activeList");
 
   // Get the value from the input field
   const todoText = todoInput.value.trim();
+  const locationText = locationInput.value.trim();
 
   // If the input is not empty
-  if (todoText !== "") {
+  if (todoText !== "" && locationText !== "") {
     // Create a new list item
     const listItem = document.createElement("li");
 
     // Create a span element for the todo text
     const todoSpan = document.createElement("span");
     todoSpan.textContent = todoText;
+
+    // Create a span element for the location text
+    const locationSpan = document.createElement("span");
+    locationSpan.textContent = locationText;
 
     // Create a button for deleting the todo
     const deleteButton = document.createElement("button");
@@ -120,6 +135,8 @@ function addTodo() {
 
     // Append the todo text, delete button, and subtask button to the list item
     listItem.appendChild(todoSpan);
+    listItem.appendChild(document.createElement("br")); // Add line break
+    listItem.appendChild(locationSpan);
     listItem.appendChild(deleteButton);
     // listItem.appendChild(subtaskButton);
 
@@ -138,8 +155,9 @@ function addTodo() {
     // Add the list item to the active list
     activeList.appendChild(listItem);
 
-    // Clear the input field
+    // Clear the input fields
     todoInput.value = "";
+    locationInput.value = "";
   }
 }
 
