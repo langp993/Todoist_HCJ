@@ -106,14 +106,22 @@ function addTodo() {
   const todoText = todoInput.value.trim();
   const locationText = locationInput.value.trim();
 
+  // // If the input is not empty
+  // if (todoText !== "" && locationText !== "") {
+  //   // Use Geocoding service to convert address to coordinates
+  //   const geocoder = new google.maps.Geocoder();
+  //   geocoder.geocode({ address: locationText }, function (results, status) {
+  //     if (status === google.maps.GeocoderStatus.OK && results[0]) {
+  //       const lat = results[0].geometry.location.lat();
+  //       const lng = results[0].geometry.location.lng();
+
   // If the input is not empty
   if (todoText !== "" && locationText !== "") {
     // Use Geocoding service to convert address to coordinates
     const geocoder = new google.maps.Geocoder();
     geocoder.geocode({ address: locationText }, function (results, status) {
       if (status === google.maps.GeocoderStatus.OK && results[0]) {
-        const lat = results[0].geometry.location.lat();
-        const lng = results[0].geometry.location.lng();
+        const formattedAddress = results[0].formatted_address;
 
         // Create a new list item
         const listItem = document.createElement("li");
@@ -122,10 +130,14 @@ function addTodo() {
         const todoSpan = document.createElement("span");
         todoSpan.textContent = todoText;
 
-        // Create a span element for the location text
-        const locationSpan = document.createElement("span");
-        // locationSpan.textContent = locationText;
-        locationSpan.textContent = `Location: (${lat}, ${lng})`;
+        // // Create a span element for the location text
+        // const locationSpan = document.createElement("span");
+        // // locationSpan.textContent = locationText;
+        // locationSpan.textContent = `Location: (${lat}, ${lng})`;
+
+        // Create a span element for the location address
+        const addressSpan = document.createElement("span");
+        addressSpan.textContent = "Location: " + formattedAddress;
 
         // Create a button for deleting the todo
         const deleteButton = document.createElement("button");
@@ -135,36 +147,42 @@ function addTodo() {
         deleteButton.style.marginLeft = "auto"; // Pushes the button to the right
         deleteButton.style.border = "none"; // Removes default button border
 
+        // deleteButton.onclick = function () {
+        //   listItem.parentElement.removeChild(listItem);
+        //   removeMarker(lat, lng);
+        // };
+
         deleteButton.onclick = function () {
           listItem.parentElement.removeChild(listItem);
-          removeMarker(lat, lng);
+          removeMarker(formattedAddress);
         };
 
         // // Create a button for adding subtask
-        // const subtaskButton = document.createElement("button");
-        // subtaskButton.textContent = "+";
+        const subtaskButton = document.createElement("button");
+        subtaskButton.textContent = "+";
 
-        // // Set styles for positioning the subtask button
-        // subtaskButton.style.marginLeft = "5px"; // Add margin to the left of the subtask button
-        // subtaskButton.style.border = "none"; // Removes default button border
+        // Set styles for positioning the subtask button
+        subtaskButton.style.marginLeft = "5px"; // Add margin to the left of the subtask button
+        subtaskButton.style.border = "none"; // Removes default button border
 
-        // subtaskButton.onclick = function () {
-        //   const subtaskText = prompt("Enter subtask:");
-        //   if (subtaskText) {
-        //     const subtaskListItem = document.createElement("li");
-        //     const subtaskSpan = document.createElement("span");
-        //     subtaskSpan.textContent = subtaskText;
-        //     subtaskListItem.appendChild(subtaskSpan);
-        //     listItem.appendChild(subtaskListItem);
-        //   }
-        // };
+        subtaskButton.onclick = function () {
+          const subtaskText = prompt("Enter subtask:");
+          if (subtaskText) {
+            const subtaskListItem = document.createElement("li");
+            const subtaskSpan = document.createElement("span");
+            subtaskSpan.textContent = subtaskText;
+            subtaskListItem.appendChild(subtaskSpan);
+            listItem.appendChild(subtaskListItem);
+          }
+        };
 
         // Append the todo text, delete button, and subtask button to the list item
         listItem.appendChild(todoSpan);
         listItem.appendChild(document.createElement("br")); // Add line break
-        listItem.appendChild(locationSpan);
+        // listItem.appendChild(locationSpan);
+        listItem.appendChild(addressSpan);
         listItem.appendChild(deleteButton);
-        // listItem.appendChild(subtaskButton);
+        listItem.appendChild(subtaskButton);
 
         // Add event listener to toggle line-through and move to completed list on click
         listItem.addEventListener("click", function () {
