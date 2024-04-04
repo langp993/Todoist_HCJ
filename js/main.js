@@ -298,9 +298,7 @@ function getPlaceStatus(openingHours) {
 
   const now = new Date();
   const dayOfWeek = now.getDay();
-  const hours = now.getHours();
-  const minutes = now.getMinutes();
-  const currentTime = hours * 100 + minutes;
+  const currentTime = now.getHours() * 100 + now.getMinutes();
 
   const todayHours = openingHours.periods[dayOfWeek];
   if (!todayHours) {
