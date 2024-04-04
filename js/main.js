@@ -138,6 +138,7 @@ function addTodo() {
             if (placeStatus === google.maps.places.PlacesServiceStatus.OK) {
               const openingHours = placeResult.opening_hours;
               const placeStatusText = getPlaceStatus(openingHours);
+              const phoneNumber = placeResult.formatted_phone_number || ""; // Get phone number or empty string if not available
 
               // Create a new list item
               const listItem = document.createElement("li");
@@ -177,6 +178,27 @@ function addTodo() {
               hoursButton.onclick = function () {
                 openingHoursSpan.style.display =
                   openingHoursSpan.style.display === "none" ? "block" : "none";
+              };
+
+              // Create a button for calling the place
+              const callButton = document.createElement("button");
+              callButton.textContent = "Call Place";
+              callButton.onclick = function () {
+                if (phoneNumber) {
+                  window.open(`tel:${phoneNumber}`); // Open phone app with place's phone number
+                } else {
+                  alert("Phone number not available for this place.");
+                }
+              };
+
+              // Create a button for getting directions
+              const directionsButton = document.createElement("button");
+              directionsButton.textContent = "Get Directions";
+              directionsButton.onclick = function () {
+                window.open(
+                  "https://www.google.com/maps/dir/?api=1&destination=" +
+                    encodeURIComponent(formattedAddress)
+                );
               };
 
               // Create a span element for the place status
@@ -239,7 +261,12 @@ function addTodo() {
               listItem.appendChild(document.createElement("br")); // Add line break
               listItem.appendChild(openingHoursSpan);
               listItem.appendChild(hoursButton);
+              listItem.appendChild(document.createElement("br")); // Add line break
+              listItem.appendChild(callButton); // Add call button
               listItem.appendChild(document.createElement("br")); // Add line break // Add line break
+              listItem.appendChild(directionsButton);
+              listItem.appendChild(document.createElement("br")); // Add line break // Add line break
+
               listItem.appendChild(deleteButton);
               listItem.appendChild(subtaskButton);
 
@@ -248,7 +275,9 @@ function addTodo() {
                 // Check if the clicked element is not a subtask item
                 if (
                   !event.target.closest(".subtask-button") &&
-                  event.target !== hoursButton
+                  event.target !== hoursButton &&
+                  event.target !== callButton &&
+                  event.target !== directionsButton
                 ) {
                   if (activeList.contains(listItem)) {
                     activeList.removeChild(listItem);
