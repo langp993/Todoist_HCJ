@@ -169,7 +169,8 @@ button {
 
 #todoList {
   margin: 40px; /* Add margin to the bottom of the input field */
-  background-color: pink;
+  background-color: greenyellow;
+  width: 70%;
 }
 
 .completed {
@@ -227,3 +228,23 @@ button {
   background-color: green;
   margin-top: 80px;
 }
+
+/* Remove default list styling */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Add padding to list items */
+li {
+  padding: 5px;
+}
+
+/* .subtask {
+  /* Add your subtask styles here */
+  /* For example: */
+  color: #666; /* Change text color */
+  /* font-style: italic; Italicize text */
+  /* margin-left: 20px; Indent subtasks */
+  width: 70%;
+} */

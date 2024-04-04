@@ -177,6 +177,7 @@ function addTodo() {
             const subtaskSpan = document.createElement("span");
             subtaskSpan.textContent = subtaskText;
             subtaskListItem.appendChild(subtaskSpan);
+            subtaskListItem.classList.add("subtask"); // Add class to subtask
             listItem.appendChild(subtaskListItem);
           }
         };
@@ -190,15 +191,18 @@ function addTodo() {
         listItem.appendChild(subtaskButton);
 
         // Add event listener to toggle line-through and move to completed list on click
-        listItem.addEventListener("click", function () {
-          if (activeList.contains(listItem)) {
-            activeList.removeChild(listItem);
-            completedList.appendChild(listItem);
-          } else {
-            completedList.removeChild(listItem);
-            activeList.appendChild(listItem);
+        listItem.addEventListener("click", function (event) {
+          // Check if the clicked element is not a subtask item
+          if (!event.target.closest(".subtask-button")) {
+            if (activeList.contains(listItem)) {
+              activeList.removeChild(listItem);
+              completedList.appendChild(listItem);
+            } else {
+              completedList.removeChild(listItem);
+              activeList.appendChild(listItem);
+            }
+            listItem.classList.toggle("completed");
           }
-          listItem.classList.toggle("completed");
         });
 
         // Add the list item to the active list
