@@ -56,15 +56,19 @@
             <button onclick="showActive()">Active</button>
             <button onclick="showCompleted()">Completed</button>
         </div> -->
+          <div id="board" style="display: block;">
 
           <button id="activeButton" onclick="showActive()">TodoList</button>
           <button id="completedButton" onclick="showCompleted()">Completed</button>
           <button id="groupListButton" onclick="switchToListGroup()">Groups</button>
-
           
-          <input type="text" id="todoInput" placeholder="Add new todo">
-          <input type="text" id="locationInput" placeholder="Add location">
-          <button onclick="addTodo()">Add</button>
+          <div id="createTask" style="display: block;">
+          <input type="text" id="todoInput" placeholder="Add new todo" style="display: block;">
+          <input type="text" id="locationInput" placeholder="Add location" style="display: block;">
+          <button onclick="addTodo()" style="display: block;">Add</button>
+          </div>
+
+          </div>
           <!-- <ul id="todoList"></ul> -->
 
           <!-- <button onclick="switchToListGroup()">Group</button>
@@ -76,6 +80,7 @@
         <ul id="todoList"></ul>
         <ul id="completedList" style="display: none;"></ul>
         <ul id="groupList" style="display: none;"></ul>
+        <!-- <p id="groupParagraph">hello this is a group</p> -->
 
 
         <div id="map">

@@ -271,10 +271,15 @@ function showActive() {
   const todoList = document.getElementById("todoList");
   const completedList = document.getElementById("completedList");
   const groupList = document.getElementById("groupList");
+  // const groupParagraph = document.getElementById("groupParagraph");
 
   todoList.style.display = "block";
   completedList.style.display = "none";
   groupList.style.display = "block";
+  // groupParagraph.style.display = "none";
+
+  //Board Display details
+  createTask.style.display = "block";
 }
 
 // Function to show completed list
@@ -283,9 +288,13 @@ function showCompleted() {
   const completedList = document.getElementById("completedList");
   const groupList = document.getElementById("groupList");
 
+  //Unordered List Display details
   todoList.style.display = "none";
   completedList.style.display = "block";
   groupList.style.display = "block";
+
+  //Board Display details //
+  createTask.style.display = "block";
 }
 
 // Function to show completed list
@@ -293,10 +302,18 @@ function switchToListGroup() {
   const todoList = document.getElementById("todoList");
   const completedList = document.getElementById("completedList");
   const groupList = document.getElementById("groupList");
+  const createTask = document.getElementById("createTask");
 
+  // const groupParagraph = document.getElementById("groupParagraph");
+
+  //Unordered List Display details
   todoList.style.display = "none";
   completedList.style.display = "none";
   groupList.style.display = "block";
+  // groupParagraph.style.display = "block";
+
+  //Board Display details //
+  createTask.style.display = "none";
 }
 
 // // Function to switch to "todo" list
