@@ -127,113 +127,194 @@ function addTodo() {
       if (status === google.maps.GeocoderStatus.OK && results[0]) {
         const formattedAddress = results[0].formatted_address;
 
-        // Create a new list item
-        const listItem = document.createElement("li");
+        // Use Place Details service to retrieve additional information, including opening hours
+        const placeId = results[0].place_id;
+        const service = new google.maps.places.PlacesService(
+          document.createElement("div")
+        );
+        service.getDetails(
+          { placeId: placeId },
+          function (placeResult, placeStatus) {
+            if (placeStatus === google.maps.places.PlacesServiceStatus.OK) {
+              const openingHours = placeResult.opening_hours;
+              const placeStatusText = getPlaceStatus(openingHours);
 
-        // Create a span element for the todo text
-        const todoSpan = document.createElement("span");
-        todoSpan.textContent = todoText;
+              // Create a new list item
+              const listItem = document.createElement("li");
 
-        // // Create a span element for the location text
-        // const locationSpan = document.createElement("span");
-        // // locationSpan.textContent = locationText;
-        // locationSpan.textContent = `Location: (${lat}, ${lng})`;
+              // Create a span element for the todo text
+              const todoSpan = document.createElement("span");
+              todoSpan.textContent = todoText;
 
-        // Create a span element for the location address
-        const addressSpan = document.createElement("span");
-        addressSpan.textContent = "Location: " + formattedAddress;
+              // // Create a span element for the location text
+              // const locationSpan = document.createElement("span");
+              // // locationSpan.textContent = locationText;
+              // locationSpan.textContent = `Location: (${lat}, ${lng})`;
 
-        // Create a button for deleting the todo
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "❌";
+              // Create a span element for the location address
+              const addressSpan = document.createElement("span");
+              addressSpan.textContent = "Location: " + formattedAddress;
 
-        // Set styles for positioning the delete button
-        deleteButton.style.marginLeft = "auto"; // Pushes the button to the right
-        deleteButton.style.border = "none"; // Removes default button border
+              // Create a span element for the opening hours
+              const openingHoursSpan = document.createElement("span");
+              openingHoursSpan.textContent =
+                "Opening Hours: " +
+                (openingHours
+                  ? openingHours.weekday_text.join(", ")
+                  : "Not available");
+              openingHoursSpan.style.display = "none"; // Initially hide opening hours
 
-        // deleteButton.onclick = function () {
-        //   listItem.parentElement.removeChild(listItem);
-        //   removeMarker(lat, lng);
-        // };
+              // Create a button for showing/hiding opening hours
+              const hoursButton = document.createElement("button");
+              hoursButton.textContent = "Show/Hide Hours";
+              hoursButton.onclick = function () {
+                openingHoursSpan.style.display =
+                  openingHoursSpan.style.display === "none" ? "block" : "none";
+              };
 
-        deleteButton.onclick = function () {
-          listItem.parentElement.removeChild(listItem);
-          removeMarker(formattedAddress);
-        };
+              // Create a span element for the place status
+              const statusSpan = document.createElement("span");
+              statusSpan.textContent = "Status: " + placeStatusText;
+              // Apply green color for "Open" status
+              statusSpan.style.color =
+                placeStatusText === "Open"
+                  ? "green"
+                  : placeStatusText === "Closed"
+                  ? "red"
+                  : "inherit";
 
-        // // Create a button for adding subtask
-        const subtaskButton = document.createElement("button");
-        subtaskButton.textContent = "+";
-        subtaskButton.className = "subtask-button"; // Add CSS class to the button
+              // Create a button for deleting the todo
+              const deleteButton = document.createElement("button");
+              deleteButton.textContent = "❌";
 
-        // Set styles for positioning the subtask button
-        subtaskButton.style.marginLeft = "5px"; // Add margin to the left of the subtask button
-        subtaskButton.style.border = "none"; // Removes default button border
+              // Set styles for positioning the delete button
+              deleteButton.style.marginLeft = "auto"; // Pushes the button to the right
+              deleteButton.style.border = "none"; // Removes default button border
 
-        subtaskButton.onclick = function () {
-          const subtaskText = prompt("Enter subtask:");
-          if (subtaskText) {
-            const subtaskListItem = document.createElement("li");
-            const subtaskSpan = document.createElement("span");
-            subtaskSpan.textContent = subtaskText;
-            subtaskListItem.appendChild(subtaskSpan);
-            subtaskListItem.classList.add("subtask"); // Add class to subtask
-            listItem.appendChild(subtaskListItem);
-          }
-        };
+              // deleteButton.onclick = function () {
+              //   listItem.parentElement.removeChild(listItem);
+              //   removeMarker(lat, lng);
+              // };
 
-        // Append the todo text, delete button, and subtask button to the list item
-        listItem.appendChild(todoSpan);
-        listItem.appendChild(document.createElement("br")); // Add line break
-        // listItem.appendChild(locationSpan);
-        listItem.appendChild(addressSpan);
-        listItem.appendChild(deleteButton);
-        listItem.appendChild(subtaskButton);
+              deleteButton.onclick = function () {
+                listItem.parentElement.removeChild(listItem);
+                removeMarker(formattedAddress);
+              };
 
-        // Add event listener to toggle line-through and move to completed list on click
-        listItem.addEventListener("click", function (event) {
-          // Check if the clicked element is not a subtask item
-          if (!event.target.closest(".subtask-button")) {
-            if (activeList.contains(listItem)) {
-              activeList.removeChild(listItem);
-              completedList.appendChild(listItem);
-            } else {
-              completedList.removeChild(listItem);
+              // // Create a button for adding subtask
+              const subtaskButton = document.createElement("button");
+              subtaskButton.textContent = "+";
+              subtaskButton.className = "subtask-button"; // Add CSS class to the button
+
+              // Set styles for positioning the subtask button
+              subtaskButton.style.marginLeft = "5px"; // Add margin to the left of the subtask button
+              subtaskButton.style.border = "none"; // Removes default button border
+
+              subtaskButton.onclick = function () {
+                const subtaskText = prompt("Enter subtask:");
+                if (subtaskText) {
+                  const subtaskListItem = document.createElement("li");
+                  const subtaskSpan = document.createElement("span");
+                  subtaskSpan.textContent = subtaskText;
+                  subtaskListItem.appendChild(subtaskSpan);
+                  subtaskListItem.classList.add("subtask"); // Add class to subtask
+                  listItem.appendChild(subtaskListItem);
+                }
+              };
+
+              // Append the todo text, delete button, and subtask button to the list item
+              listItem.appendChild(todoSpan);
+              listItem.appendChild(document.createElement("br")); // Add line break
+              // listItem.appendChild(locationSpan);
+              listItem.appendChild(addressSpan);
+              listItem.appendChild(document.createElement("br"));
+              listItem.appendChild(statusSpan);
+              listItem.appendChild(document.createElement("br")); // Add line break
+              listItem.appendChild(openingHoursSpan);
+              listItem.appendChild(hoursButton);
+              listItem.appendChild(document.createElement("br")); // Add line break // Add line break
+              listItem.appendChild(deleteButton);
+              listItem.appendChild(subtaskButton);
+
+              // Add event listener to toggle line-through and move to completed list on click
+              listItem.addEventListener("click", function (event) {
+                // Check if the clicked element is not a subtask item
+                if (
+                  !event.target.closest(".subtask-button") &&
+                  event.target !== hoursButton
+                ) {
+                  if (activeList.contains(listItem)) {
+                    activeList.removeChild(listItem);
+                    completedList.appendChild(listItem);
+                  } else {
+                    completedList.removeChild(listItem);
+                    activeList.appendChild(listItem);
+                  }
+                  listItem.classList.toggle("completed");
+                }
+              });
+
+              // Add the list item to the active list
               activeList.appendChild(listItem);
+
+              //     // Clear the input fields
+              //     todoInput.value = "";
+              //     locationInput.value = "";
+              //   }
+              // }
+
+              // Create AdvancedMarkerElement for the task
+              // const advancedMarker = new google.maps.marker.AdvancedMarkerElement({
+              //   // const advancedMarker = new google.maps.marker({
+              //   lat: lat,
+              //   lng: lng,
+              //   map: map,
+              //   content: todoText,
+              // });
+              // markers.push(advancedMarker);
+
+              // // Create marker for the task
+              // createMarker(lat, lng, todoText);
+
+              // Clear the input fields
+              todoInput.value = "";
+              locationInput.value = "";
+            } else {
+              alert("Failed to fetch place details: " + placeStatus);
             }
-            listItem.classList.toggle("completed");
           }
-        });
-
-        // Add the list item to the active list
-        activeList.appendChild(listItem);
-
-        //     // Clear the input fields
-        //     todoInput.value = "";
-        //     locationInput.value = "";
-        //   }
-        // }
-
-        // Create AdvancedMarkerElement for the task
-        // const advancedMarker = new google.maps.marker.AdvancedMarkerElement({
-        //   // const advancedMarker = new google.maps.marker({
-        //   lat: lat,
-        //   lng: lng,
-        //   map: map,
-        //   content: todoText,
-        // });
-        // markers.push(advancedMarker);
-
-        // // Create marker for the task
-        // createMarker(lat, lng, todoText);
-
-        // Clear the input fields
-        todoInput.value = "";
-        locationInput.value = "";
+        );
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }
     });
+  }
+}
+
+function getPlaceStatus(openingHours) {
+  if (!openingHours || !openingHours.periods) {
+    return "Not available";
+  }
+
+  const now = new Date();
+  const dayOfWeek = now.getDay();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const currentTime = hours * 100 + minutes;
+
+  const todayHours = openingHours.periods[dayOfWeek];
+  if (!todayHours) {
+    return "Not available";
+  }
+
+  if (
+    todayHours.close &&
+    currentTime >= todayHours.open.time &&
+    currentTime < todayHours.close.time
+  ) {
+    return "Open";
+  } else {
+    return "Closed";
   }
 }
 
