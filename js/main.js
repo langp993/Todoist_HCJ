@@ -95,13 +95,16 @@ function initMap() {
   const locationInput = document.getElementById("locationInput");
   const autocomplete = new google.maps.places.Autocomplete(locationInput);
   autocomplete.setFields(["geometry"]);
+
+  // Set the active list to the default "todo" list
+  activeList = document.getElementById("todoList");
 }
 
 // Function to add a new todo
 function addTodo() {
   const todoInput = document.getElementById("todoInput");
   const locationInput = document.getElementById("locationInput");
-  const activeList = document.getElementById("activeList");
+  const activeList = document.getElementById("todoList");
 
   // Get the value from the input field
   const todoText = todoInput.value.trim();
@@ -265,20 +268,35 @@ function addTodo() {
 
 // Function to show active list
 function showActive() {
-  const activeList = document.getElementById("activeList");
+  const todoList = document.getElementById("todoList");
   const completedList = document.getElementById("completedList");
+  const groupList = document.getElementById("groupList");
 
-  activeList.style.display = "block";
+  todoList.style.display = "block";
   completedList.style.display = "none";
+  groupList.style.display = "block";
 }
 
 // Function to show completed list
 function showCompleted() {
-  const activeList = document.getElementById("activeList");
+  const todoList = document.getElementById("todoList");
   const completedList = document.getElementById("completedList");
+  const groupList = document.getElementById("groupList");
 
-  activeList.style.display = "none";
+  todoList.style.display = "none";
   completedList.style.display = "block";
+  groupList.style.display = "block";
+}
+
+// Function to show completed list
+function switchToListGroup() {
+  const todoList = document.getElementById("todoList");
+  const completedList = document.getElementById("completedList");
+  const groupList = document.getElementById("groupList");
+
+  todoList.style.display = "none";
+  completedList.style.display = "none";
+  groupList.style.display = "block";
 }
 
 // // Function to switch to "todo" list
