@@ -151,9 +151,16 @@ function addTodo() {
               // // locationSpan.textContent = locationText;
               // locationSpan.textContent = `Location: (${lat}, ${lng})`;
 
-              // Create a span element for the location address
+              // // Create a span element for the location address
+              // const addressSpan = document.createElement("span");
+              // addressSpan.textContent = "Location: " + formattedAddress;
+
+              // Create a span element for the location details (name and address)
+              const placeName = placeResult.name; // Get the name of the place
               const addressSpan = document.createElement("span");
-              addressSpan.textContent = "Location: " + formattedAddress;
+              addressSpan.textContent = `Location: ${placeName}, ${formattedAddress}`;
+              // Append the location span to the list item
+              listItem.appendChild(addressSpan);
 
               // Create a span element for the opening hours
               const openingHoursSpan = document.createElement("span");
