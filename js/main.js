@@ -329,12 +329,12 @@ function addTodo() {
               dueTimeInput.value = "";
 
               // Calculate time until due date and time
-              const dueDateTime = new Date(`${dueDate} ${dueTime}`);
+              const dueDateTime = new Date(`${dueDate}T${dueTime}`);
               const now = new Date();
-              const timeUntilDue = dueDateTime.getTime() - now.getTime();
 
               // Set timeout for due date and time
-              if (timeUntilDue > 0) {
+              if (dueDateTime > now) {
+                const timeUntilDue = dueDateTime - now;
                 setTimeout(function () {
                   alert(`Reminder: Task "${todoText}" is due now!`);
                 }, timeUntilDue);
