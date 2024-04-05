@@ -157,6 +157,30 @@ color: white;
   width: 80%;
 }
 
+#locationInput:focus {
+  outline: none; /* Remove the outline when input field is focused */
+}
+
+#dueDateInput {
+  margin: 10px; /* Add margin to the bottom of the input container */
+  /* flex: 1; Grow to fill available space */
+  border: 1px solid #ccc; /* Add a solid border with color #ccc */
+  padding: 5px; /* Add padding inside the input field */
+  box-sizing: border-box; /* Include padding and border in the input field's total width */
+  margin-right: 20px; /* Add margin to the right of the input field */
+  width: 80%;
+}
+
+#dueTimeInput {
+  margin: 10px; /* Add margin to the bottom of the input container */
+  /* flex: 1; Grow to fill available space */
+  border: 1px solid #ccc; /* Add a solid border with color #ccc */
+  padding: 5px; /* Add padding inside the input field */
+  box-sizing: border-box; /* Include padding and border in the input field's total width */
+  margin-right: 20px; /* Add margin to the right of the input field */
+  width: 80%;
+}
+
 button {
   border: none; /* Remove default button border */
   padding: 10px; /* Add padding to the button */

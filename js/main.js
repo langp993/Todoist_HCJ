@@ -104,11 +104,15 @@ function initMap() {
 function addTodo() {
   const todoInput = document.getElementById("todoInput");
   const locationInput = document.getElementById("locationInput");
+  const dueDateInput = document.getElementById("dueDateInput");
+  const dueTimeInput = document.getElementById("dueTimeInput");
   const activeList = document.getElementById("todoList");
 
   // Get the value from the input field
   const todoText = todoInput.value.trim();
   const locationText = locationInput.value.trim();
+  const dueDate = dueDateInput.value;
+  const dueTime = dueTimeInput.value;
 
   // // If the input is not empty
   // if (todoText !== "" && locationText !== "") {
@@ -155,6 +159,11 @@ function addTodo() {
               // // Create a span element for the location address
               // const addressSpan = document.createElement("span");
               // addressSpan.textContent = "Location: " + formattedAddress;
+
+              // Create a span element for the due date and time
+              const dueDateTimeSpan = document.createElement("span");
+              dueDateTimeSpan.textContent = `Due Date & Time: ${dueDate} ${dueTime}`;
+              listItem.appendChild(dueDateTimeSpan);
 
               // Create a span element for the location details (name and address)
               const placeName = placeResult.name; // Get the name of the place
@@ -258,6 +267,8 @@ function addTodo() {
               listItem.appendChild(addressSpan);
               listItem.appendChild(document.createElement("br"));
               listItem.appendChild(statusSpan);
+              listItem.appendChild(document.createElement("br"));
+              listItem.appendChild(dueDateTimeSpan);
               listItem.appendChild(document.createElement("br")); // Add line break
               listItem.appendChild(openingHoursSpan);
               listItem.appendChild(hoursButton);
@@ -266,7 +277,6 @@ function addTodo() {
               listItem.appendChild(document.createElement("br")); // Add line break // Add line break
               listItem.appendChild(directionsButton);
               listItem.appendChild(document.createElement("br")); // Add line break // Add line break
-
               listItem.appendChild(deleteButton);
               listItem.appendChild(subtaskButton);
 
@@ -315,6 +325,22 @@ function addTodo() {
               // Clear the input fields
               todoInput.value = "";
               locationInput.value = "";
+              dueDateInput.value = "";
+              dueTimeInput.value = "";
+
+              // Calculate time until due date and time
+              const dueDateTime = new Date(`${dueDate} ${dueTime}`);
+              const now = new Date();
+              const timeUntilDue = dueDateTime.getTime() - now.getTime();
+
+              // Set timeout for due date and time
+              if (timeUntilDue > 0) {
+                setTimeout(function () {
+                  alert(`Reminder: Task "${todoText}" is due now!`);
+                }, timeUntilDue);
+              } else {
+                alert(`Reminder: Task "${todoText}" is already overdue!`);
+              }
             } else {
               alert("Failed to fetch place details: " + placeStatus);
             }
