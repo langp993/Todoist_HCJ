@@ -121,32 +121,49 @@ button {
   justify-content: center; /* Horizontally center the button */;
 }
 
+
+
+
+
+
 .Inputbuttoncontainer {
   background-color: skyblue;
   display: flex;
+  flex-direction: row;
+
   justify-content: center; /* Horizontally center the button */;
 }
 
-.Inputbuttoncontainer {
+/* .Inputbuttoncontainer {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-}
+  /* align-items: flex-start; */
+  justify-content: center; /* Horizontally center the button */;
+
+} */
 
 .button-container {
   display: flex;
   align-items: center;
 }
 
-.Addtodobuttoncontainer {
+/* .Addtodobuttoncontainer {
+  /* position: relative; */
   background-color: green;
   display: flex;
-  justify-content: center; /* Horizontally center the button */;
-}
+  justify-content: center;
+
+  /* justify-content: flex-end; */
+} */
 
 .add-button {
-  margin-left: 10px;
+  /* margin-right: 20px; */
+  width: 600px;
 }
+
+
+
+
 
 
 .ThreeListcontainer {
