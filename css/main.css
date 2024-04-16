@@ -72,13 +72,17 @@ button {
 
 #todoList {
   position: fixed;
-  top: 50%;
+  /* top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: none;
+  transform: translate(-50%, -50%); */
+  /* background-color: none; */
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.6); /* White with 80% opacity */
   padding: 20px;
   width: 70%;
-  height: 40%;
+  height: 35%;
   z-index: 1; /* Ensure the todoList appears above the map */
   overflow-y: auto; /* Add vertical overscroll */
 
