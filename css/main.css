@@ -4,11 +4,6 @@
 
   //////ChatGPT
 
-#Todomainheader {
-  background-color: red;
-  color: white; /* Optionally set text color */
-  padding: 10px; /* Add padding for spacing */
-}
 
 .input-container {
   display: flex;
@@ -72,12 +67,17 @@ button {
 }
 
 #todoList {
-  margin: 40px; /* Add margin to the bottom of the input field */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: none;
   padding: 20px;
-  background-color: violet;
   width: 70%;
-  display: flex;
-  justify-content: center; /* Horizontally center the button */;
+  height: 40%;
+  z-index: 1; /* Ensure the todoList appears above the map */
+  overflow-y: auto; /* Add vertical overscroll */
+
 }
 
 .completed {
@@ -92,6 +92,7 @@ button {
 } */
 
 ///
+
 
 .input-container {
   margin-bottom: 10px; /* Add margin to the bottom of the input container */
@@ -110,28 +111,37 @@ button {
 
 
 .Headercontainer {
-  background-color: red;
+  background-color: lightgreen;
   display: flex;
   justify-content: center; /* Horizontally center the button */;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
+
 }
+
+.Todolist-H1Header {
+  color: black; /* Set text color to red */
+  font-size: 24px; /* Set font size */
+  /* Add any other styles you want */
+  font-family: 'Futura Bold', sans-serif; /* Apply Futura Bold font */
+}
+
+
+
 
 .Headerbuttoncontainer {
   background-color: yellow;
   display: flex;
   justify-content: center; /* Horizontally center the button */;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
+
 }
 
-
-
-
-
-
 .Inputbuttoncontainer {
-  background-color: skyblue;
+  background-color: white;
   display: flex;
   flex-direction: row;
-
   justify-content: center; /* Horizontally center the button */;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
 }
 
 /* .Inputbuttoncontainer {
@@ -145,20 +155,13 @@ button {
 .button-container {
   display: flex;
   align-items: center;
+  
 }
-
-/* .Addtodobuttoncontainer {
-  /* position: relative; */
-  background-color: green;
-  display: flex;
-  justify-content: center;
-
-  /* justify-content: flex-end; */
-} */
 
 .add-button {
   /* margin-right: 20px; */
   width: 600px;
+  background-color: #ff7700;
 }
 
 
@@ -167,7 +170,7 @@ button {
 
 
 .ThreeListcontainer {
-  background-color: purple;
+  background-color: white;
   display: flex;
   justify-content: center; /* Horizontally center the button */;
 }
@@ -212,14 +215,25 @@ button {
 
 }
 
-#map {
-  height: 400px;
+
+
+
+.Maintodobody {
+  z-index: 1;
+  position: fixed;
   width: 100%;
-  background-color: green;
-  margin-top: 80px;
+  top: 0
 }
 
-
+#map {
+  position: fixed; /* Change to fixed positioning */
+  top: 0;
+  left: 0;
+  height: 100vh; /* Use viewport height to cover the entire vertical space */
+  width: 100vw; /* Use viewport width to cover the entire horizontal space */
+  background-color: green;
+  z-index: -1;
+}
 
 
 
@@ -231,4 +245,5 @@ ul {
 /* Add padding to list items */
 li {
   padding: 25px;
+  background-color: white;
 }

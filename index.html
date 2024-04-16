@@ -10,6 +10,7 @@
         <link rel="shortcut icon" href="favicon.ico">
         <link rel="stylesheet" href="css/main.css">
         <!-- <link href="path/to/tailwind.css" rel="stylesheet"> -->
+        <link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
         <link href="path/to/tailwind.css" rel="stylesheet">
         <!-- <link href="node_modules/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> -->
 
@@ -17,9 +18,13 @@
 
     <body>
 
+        <div id="map"></div>
+
+        <div class="Maintodobody">
+
           <div class="Headercontainer">
 
-            <h1 className="bg-red-500 mx-auto">Todo List</h1>
+            <h1 class="Todolist-H1Header">Todo List</h1>
 
           </div>
 
@@ -45,7 +50,6 @@
 
             <button onclick="addTodo()" class="add-button"">Add</button>
 
-
             </div>
 
             <!-- <div class="Addtodobuttoncontainer"> -->
@@ -56,21 +60,28 @@
             
             </div>
 
+            <ul id="todoList"></ul>
+            <ul id="completedList" style="display: none;"></ul>
+            <ul id="groupList" style="display: none;"></ul>
+
+
           </div>
 
           </div>
 
           <div class="ThreeListcontainer">
 
-            <ul id="todoList"></ul>
-            <ul id="completedList" style="display: none;"></ul>
-            <ul id="groupList" style="display: none;"></ul>
+            <!-- <ul id="todoList"></ul> -->
+            <!-- <ul id="completedList" style="display: none;"></ul>
+            <ul id="groupList" style="display: none;"></ul> -->
             <!-- <p id="groupParagraph">hello this is a group</p> -->
 
           </div>
 
+        </div>
 
-          <div id="map"></div>
+
+          <!-- <div id="map"></div> -->
 
         <script src="js/plugins.js"></script> -->
         <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5SwNk404MXKIDnMKO-g1tQ_2G6jz93f8&callback=myMap"></script> -->
