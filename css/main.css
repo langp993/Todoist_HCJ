@@ -1,134 +1,14 @@
-p.Colorparagraph {
-background-color: green;
-color: white;
-    }
-
-.hellobox {
-    background-color: yellow;
-    padding: 20px;
-     }
-
-/////
-
-    /* Include the padding and border in an element's total width and height */
-* {
-    box-sizing: border-box;
-  }
-  
-  /* Remove margins and padding from the list */
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Style the list items */
-  ul li {
-    cursor: pointer;
-    position: relative;
-    padding: 12px 8px 12px 40px;
-    background: #eee;
-    font-size: 18px;
-    transition: 0.2s;
-  
-    /* make the list items unselectable */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Set all odd list items to a different color (zebra-stripes) */
-  ul li:nth-child(odd) {
-    background: #f9f9f9;
-  }
-  
-  /* Darker background-color on hover */
-  ul li:hover {
-    background: #ddd;
-  }
-  
-  /* When clicked on, add a background color and strike out text */
-  ul li.checked {
-    background: #888;
-    color: #fff;
-    text-decoration: line-through;
-  }
-  
-  /* Add a "checked" mark when clicked on */
-  ul li.checked::before {
-    content: '';
-    position: absolute;
-    border-color: #fff;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    top: 10px;
-    left: 16px;
-    transform: rotate(45deg);
-    height: 15px;
-    width: 7px;
-  }
-  
-  /* Style the close button */
-  .close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 12px 16px 12px 16px;
-  }
-  
-  .close:hover {
-    background-color: #f44336;
-    color: white;
-  }
-  
-  /* Style the header */
-  .header {
-    background-color: #f44336;
-    padding: 30px 40px;
-    color: white;
-    text-align: center;
-  }
-  
-  /* Clear floats after the header */
-  .header:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  /* Style the input */
-  input {
-    margin: 0;
-    border: none;
-    border-radius: 0;
-    width: 75%;
-    padding: 10px;
-    float: left;
-    font-size: 16px;
-  }
-  
-  /* Style the "Add" button */
-  .addBtn {
-    padding: 10px;
-    width: 15%;
-    background: #d9d9d9;
-    color: #555;
-    float: right;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 0;
-  }
-  
-  .addBtn:hover {
-    background-color: #bbb;
-  }
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
   //////ChatGPT
 
-
+#Todomainheader {
+  background-color: red;
+  color: white; /* Optionally set text color */
+  padding: 10px; /* Add padding for spacing */
+}
 
 .input-container {
   display: flex;
@@ -184,7 +64,7 @@ color: white;
 button {
   border: none; /* Remove default button border */
   padding: 10px; /* Add padding to the button */
-  background-color: #007bff; /* Set button background color */
+  background-color: #ff7700; /* Set button background color */
   color: #fff; /* Set text color to white */
   cursor: pointer; /* Show pointer cursor on hover */
   margin: 10px;
@@ -193,8 +73,11 @@ button {
 
 #todoList {
   margin: 40px; /* Add margin to the bottom of the input field */
-  background-color: greenyellow;
+  padding: 20px;
+  background-color: violet;
   width: 70%;
+  display: flex;
+  justify-content: center; /* Horizontally center the button */;
 }
 
 .completed {
@@ -224,25 +107,91 @@ button {
 
 }
 
-button {
-  margin-right: 5px; /* Add margin to the right of each button */
-  background-color: lightskyblue; /* Set button background color */
 
+
+.Headercontainer {
+  background-color: red;
+  display: flex;
+  justify-content: center; /* Horizontally center the button */;
+}
+
+.Headerbuttoncontainer {
+  background-color: yellow;
+  display: flex;
+  justify-content: center; /* Horizontally center the button */;
+}
+
+.Inputbuttoncontainer {
+  background-color: skyblue;
+  display: flex;
+  justify-content: center; /* Horizontally center the button */;
+}
+
+.Inputbuttoncontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.Addtodobuttoncontainer {
+  background-color: green;
+  display: flex;
+  justify-content: center; /* Horizontally center the button */;
+}
+
+.add-button {
+  margin-left: 10px;
+}
+
+
+.ThreeListcontainer {
+  background-color: purple;
+  display: flex;
+  justify-content: center; /* Horizontally center the button */;
+}
+
+.google-button-container {
+  background-color: green;
+  /* display: flex;
+  justify-content: center; /* Horizontally center the button */; */
+}
+
+
+
+
+
+button {
+  display: flex;
+  justify-content: center; /* Horizontally center the button */;
+  margin-right: 5px; /* Add margin to the right of each button */
+  background-color: black; /* Set button background color */
 }
 
 .subtask-button {
   border: none; /* Remove default button border */
   padding: 15px; /* Add padding to the button */
-  background-color: grey; /* Set button background color */
+  background-color: orange; /* Set button background color */
   color: #fff; /* Set text color to white */
   cursor: pointer; /* Show pointer cursor on hover */
   margin: 10px;
   width: 80%;
 }
 
+
+
+
+
 .completed {
+
   text-decoration: line-through; /* Add line-through to completed todo items */
   margin-top: 20px; /* Add margin to the bottom of the lists container */
+  background-color: green;
+
 
 }
 
@@ -253,24 +202,16 @@ button {
   margin-top: 80px;
 }
 
+
+
+
+
 /* Remove default list styling */
 ul {
   list-style-type: none;
-  padding: 0;
 }
 
 /* Add padding to list items */
 li {
-  padding: 5px;
+  padding: 25px;
 }
-
-/* .subtask {
-  /* Add your subtask styles here */
-  /* For example: */
-  color: #666; /* Change text color */
-  /* font-style: italic; Italicize text */
-  /* margin-left: 20px; Indent subtasks */
-  width: 70%;
-} */
-
-

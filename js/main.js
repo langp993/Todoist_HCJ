@@ -110,6 +110,10 @@ function addTodo() {
                   : "Not available");
               openingHoursSpan.style.display = "none"; // Initially hide opening hours
 
+              // Create a div to contain the buttons
+              const buttonsDiv = document.createElement("div");
+              buttonsDiv.id = "google-button-container"; // Adding an ID to the div
+
               // Create a button for showing/hiding opening hours
               const hoursButton = document.createElement("button");
               hoursButton.textContent = "Show/Hide Hours";
@@ -139,6 +143,14 @@ function addTodo() {
                 );
               };
 
+              // Append buttons to the div
+              buttonsDiv.appendChild(hoursButton);
+              buttonsDiv.appendChild(callButton);
+              buttonsDiv.appendChild(directionsButton);
+
+              // Append the div to the document body or any other container element
+              document.body.appendChild(buttonsDiv);
+
               // Create a span element for the place status
               const statusSpan = document.createElement("span");
               statusSpan.textContent = "Status: " + placeStatusText;
@@ -155,8 +167,8 @@ function addTodo() {
               deleteButton.textContent = "❌";
 
               // Set styles for positioning the delete button
-              deleteButton.style.marginLeft = "auto"; // Pushes the button to the right
-              deleteButton.style.border = "none"; // Removes default button border
+              // deleteButton.style.marginLeft = "auto"; // Pushes the button to the right
+              // deleteButton.style.border = "none"; // Removes default button border
 
               // deleteButton.onclick = function () {
               //   listItem.parentElement.removeChild(listItem);
@@ -174,8 +186,8 @@ function addTodo() {
               subtaskButton.className = "subtask-button"; // Add CSS class to the button
 
               // Set styles for positioning the subtask button
-              subtaskButton.style.marginLeft = "5px"; // Add margin to the left of the subtask button
-              subtaskButton.style.border = "none"; // Removes default button border
+              // subtaskButton.style.marginLeft = "5px"; // Add margin to the left of the subtask button
+              // subtaskButton.style.border = "none"; // Removes default button border
 
               subtaskButton.onclick = function () {
                 const subtaskText = prompt("Enter subtask:");
@@ -188,6 +200,25 @@ function addTodo() {
                   listItem.appendChild(subtaskListItem);
                 }
               };
+
+              // Get photos of the place
+              // if (placeResult.photos && placeResult.photos.length > 0) {
+              //   const photo = placeResult.photos[0]; // Get the first photo
+              //   const photoUrl = photo.getUrl({
+              //     maxWidth: 400,
+              //     maxHeight: 200,
+              //   });
+              //   const photoImg = document.createElement("img");
+              //   photoImg.src = photoUrl;
+              //   photoImg.alt = "Place Photo";
+              //   listItem.appendChild(photoImg);
+              // } else {
+              //   // If no photos available, display a placeholder image
+              //   const placeholderImg = document.createElement("img");
+              //   placeholderImg.src = "placeholder.jpg"; // Provide URL to placeholder image
+              //   placeholderImg.alt = "Placeholder";
+              //   listItem.appendChild(placeholderImg);
+              // }
 
               // Append the todo text, delete button, and subtask button to the list item
               listItem.appendChild(todoSpan);
@@ -348,5 +379,3 @@ function switchToListGroup() {
 //   activeList = document.getElementById("groupList");
 //   // activeList.style.display = "none";
 // }
-
-////////!SECTION RAUL CODE
