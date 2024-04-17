@@ -89,17 +89,29 @@ function addTodo() {
               // const addressSpan = document.createElement("span");
               // addressSpan.textContent = "Location: " + formattedAddress;
 
-              // Create a span element for the due date and time
-              const dueDateTimeSpan = document.createElement("span");
-              dueDateTimeSpan.textContent = `Due Date & Time: ${dueDate} ${dueTime}`;
-              listItem.appendChild(dueDateTimeSpan);
-
               // Create a span element for the location details (name and address)
               const placeName = placeResult.name; // Get the name of the place
               const addressSpan = document.createElement("span");
               addressSpan.textContent = `Location: ${placeName}, ${formattedAddress}`;
               // Append the location span to the list item
               listItem.appendChild(addressSpan);
+
+              // Apply styles directly using the style property
+              addressSpan.style.backgroundColor = "pink";
+              addressSpan.style.padding = "20px";
+              addressSpan.style.margin = "10px";
+              addressSpan.style.width = "70%";
+
+              // Create a span element for the due date and time
+              const dueDateTimeSpan = document.createElement("span");
+              dueDateTimeSpan.textContent = `Due Date & Time: ${dueDate} ${dueTime}`;
+              listItem.appendChild(dueDateTimeSpan);
+
+              // Apply styles directly using the style property
+              dueDateTimeSpan.style.backgroundColor = "yellow";
+              dueDateTimeSpan.style.padding = "20px";
+              dueDateTimeSpan.style.margin = "10px";
+              dueDateTimeSpan.style.width = "70%";
 
               // Create a span element for the opening hours
               const openingHoursSpan = document.createElement("span");
@@ -110,20 +122,11 @@ function addTodo() {
                   : "Not available");
               openingHoursSpan.style.display = "none"; // Initially hide opening hours
 
-              // Create a div to contain the buttons
-              const buttonsDiv = document.createElement("div");
-              buttonsDiv.style.display = "flex"; // Set display to flex to lay out children in a row
-              buttonsDiv.style.marginTop = "10px"; // Add top margin to the buttons container
-              // You can also assign a class name to the element
-              // buttonsDiv.className = "my-button-container";
-              // buttonsDiv.classList.add("my-button-container");
-              // Apply styles directly to the element
-
-              // buttonsDiv.style.backgroundColor = "pink";
-              // buttonsDiv.style.color = "black";
-              // buttonsDiv.style.paddingTop = "10px";
-              // buttonsDiv.style.margin = "50px";
-              // buttonsDiv.style.height = "150px";
+              // Apply styles directly using the style property
+              openingHoursSpan.style.backgroundColor = "green";
+              openingHoursSpan.style.padding = "20px";
+              openingHoursSpan.style.margin = "10px";
+              openingHoursSpan.style.width = "70%";
 
               // Create a button for showing/hiding opening hours
               const hoursButton = document.createElement("button");
@@ -166,6 +169,21 @@ function addTodo() {
                     encodeURIComponent(formattedAddress)
                 );
               };
+
+              // Create a div to contain the buttons
+              const buttonsDiv = document.createElement("div");
+              // buttonsDiv.style.display = "flex"; // Set display to flex to lay out children in a row
+              // buttonsDiv.style.marginTop = "10px"; // Add top margin to the buttons container
+              // You can also assign a class name to the element
+              // buttonsDiv.className = "my-button-container";
+              // buttonsDiv.classList.add("my-button-container");
+              // Apply styles directly to the element
+
+              // buttonsDiv.style.backgroundColor = "pink";
+              // buttonsDiv.style.color = "black";
+              // buttonsDiv.style.paddingTop = "10px";
+              // buttonsDiv.style.margin = "50px";
+              // buttonsDiv.style.height = "150px";
 
               // Append buttons to the div
               buttonsDiv.appendChild(hoursButton);

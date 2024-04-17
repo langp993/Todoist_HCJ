@@ -226,6 +226,24 @@ ul {
 
 }
 
+.subtask-button {
+  border: none; /* Remove default button border */
+  padding: 15px; /* Add padding to the button */
+  background-color: green; /* Set button background color */
+  color: #fff; /* Set text color to white */
+  cursor: pointer; /* Show pointer cursor on hover */
+  margin: 10px;
+  width: 80%;
+}
+
+.subtask {
+  background-color: pink;
+  padding: 20px;
+  width: 70%;
+  margin: 20px auto; /* Center horizontally */
+
+}
+
 
 
 
@@ -327,21 +345,7 @@ ul {
   background-color: black; /* Set button background color */
 } */
 
-.subtask-button {
-  border: none; /* Remove default button border */
-  padding: 15px; /* Add padding to the button */
-  background-color: green; /* Set button background color */
-  color: #fff; /* Set text color to white */
-  cursor: pointer; /* Show pointer cursor on hover */
-  margin: 10px;
-  width: 80%;
-}
 
-.subtask {
-  background-color: pink;
-  padding: 20px;
-  margin: 10px;
-}
 
 
 
