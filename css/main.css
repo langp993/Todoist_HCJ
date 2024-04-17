@@ -163,6 +163,29 @@ body {
   }
 }
 
+#completedList {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 20px;
+  width: 600px;
+  height: 35%;
+  z-index: 1;
+  overflow-y: auto;
+  margin: 0; /* Add this line to remove default body margin */
+}
+
+@media (max-width: 768px) {
+  /* Change width to 40% for screens smaller than medium */
+  #completedList {
+    width: 100%;
+    bottom: 0;
+    height: 35%;
+  }
+}
+
 /* Remove default list styling */
 ul {
   list-style-type: none;
