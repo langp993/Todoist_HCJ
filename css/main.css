@@ -102,9 +102,9 @@ button {
   flex-direction: row;
 }
 
-.my-button-container {
+/* .my-button-container {
   background-color: red;
-}
+} */
 
 
 
@@ -163,12 +163,16 @@ body {
   }
 }
 
+#todoList li {
+  text-align: center; /* Center the content horizontally */
+}
+
 #completedList {
   position: fixed;
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.6); 
   padding: 20px;
   width: 600px;
   height: 35%;
@@ -186,17 +190,22 @@ body {
   }
 }
 
+#completedList li {
+  text-align: center; /* Center the content horizontally */
+  background-color: yellow;
+}
+
 /* Remove default list styling */
 ul {
   list-style-type: none;
 }
 
 /* Add padding to list items */
-li {
+/* li {
   padding: 25px;
   background-color: lightgreen;
   margin-bottom: 20px;
-}
+} */
 
 /* Add padding to list items */
 .completed li {
@@ -240,7 +249,7 @@ li {
 
 
 .Headercontainer {
-  background-color: yellow;
+  background-color: white;
   display: flex;
   justify-content: center; /* Horizontally center the button */;
   align-items: center; /* Center items vertically */
@@ -326,6 +335,12 @@ li {
   cursor: pointer; /* Show pointer cursor on hover */
   margin: 10px;
   width: 80%;
+}
+
+.subtask {
+  background-color: pink;
+  padding: 20px;
+  margin: 10px;
 }
 
 

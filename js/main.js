@@ -112,18 +112,26 @@ function addTodo() {
 
               // Create a div to contain the buttons
               const buttonsDiv = document.createElement("div");
+              buttonsDiv.style.display = "flex"; // Set display to flex to lay out children in a row
+              buttonsDiv.style.marginTop = "10px"; // Add top margin to the buttons container
               // You can also assign a class name to the element
               // buttonsDiv.className = "my-button-container";
-              buttonsDiv.classList.add("my-button-container");
+              // buttonsDiv.classList.add("my-button-container");
               // Apply styles directly to the element
-              // buttonsDiv.style.backgroundColor = "lightblue";
+
+              // buttonsDiv.style.backgroundColor = "pink";
               // buttonsDiv.style.color = "black";
-              // buttonsDiv.style.padding = "10px";
+              // buttonsDiv.style.paddingTop = "10px";
+              // buttonsDiv.style.margin = "50px";
+              // buttonsDiv.style.height = "150px";
 
               // Create a button for showing/hiding opening hours
               const hoursButton = document.createElement("button");
-              hoursButton.textContent = "Show/Hide Hours";
-              hoursButton.style.backgroundColor = "green";
+              hoursButton.textContent = "Show/Hide Open Hours";
+              // hoursButton.style.backgroundColor = "green";
+              // hoursButton.style.width = "60px";
+              // hoursButton.style.display = "flex";
+              // hoursButton.style.flexDirection = "row";
               hoursButton.onclick = function () {
                 openingHoursSpan.style.display =
                   openingHoursSpan.style.display === "none" ? "block" : "none";
@@ -132,6 +140,11 @@ function addTodo() {
               // Create a button for calling the place
               const callButton = document.createElement("button");
               callButton.textContent = "Call Place";
+              // callButton.style.backgroundColor = "orange";
+              // callButton.style.width = "60px";
+              // callButton.style.marginRight = "5px"; // Add right margin to create space between buttons
+              // callButton.style.display = "flex";
+              // callButton.style.flexDirection = "row";
               callButton.onclick = function () {
                 if (phoneNumber) {
                   window.open(`tel:${phoneNumber}`); // Open phone app with place's phone number
@@ -143,6 +156,10 @@ function addTodo() {
               // Create a button for getting directions
               const directionsButton = document.createElement("button");
               directionsButton.textContent = "Get Directions";
+              // directionsButton.style.backgroundColor = "orange";
+              // directionsButton.style.width = "60px";
+              // directionsButton.style.display = "flex";
+              // directionsButton.style.flexDirection = "row";
               directionsButton.onclick = function () {
                 window.open(
                   "https://www.google.com/maps/dir/?api=1&destination=" +
@@ -155,8 +172,17 @@ function addTodo() {
               buttonsDiv.appendChild(callButton);
               buttonsDiv.appendChild(directionsButton);
 
-              // Append the div to the document body or any other container element
-              document.body.appendChild(buttonsDiv);
+              // Append the buttonsDiv to the listItem
+              listItem.appendChild(buttonsDiv);
+
+              // // Append the div to the document body or any other container element
+              // document.body.appendChild(buttonsDiv);
+
+              // // Find the UL element where you want to append the buttonsDiv
+              // const ulElement = document.getElementById("todoList");
+
+              // // Append the buttonsDiv to the UL element
+              // ulElement.appendChild(buttonsDiv);
 
               // Create a span element for the place status
               const statusSpan = document.createElement("span");
