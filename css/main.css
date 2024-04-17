@@ -9,6 +9,23 @@
     padding: 0;
   } */
 
+
+  
+
+/* CSS for buttons inside Headerbuttoncontainer */
+.Headerbuttoncontainer button {
+  /* Add your specific styles here */
+  /* For example: */
+  background-color: black;
+  color: white;
+}
+
+
+
+
+
+
+
 .input-container {
   display: flex;
   margin-bottom: 40px; /* Add margin to the bottom of the input container */
@@ -60,15 +77,63 @@
   width: 80%;
 }
 
+
+
+
+/* buttonsDiv.className = "my-button-container"; */
+
+
+
+
+
 button {
   border: none; /* Remove default button border */
   padding: 10px; /* Add padding to the button */
-  background-color: #ff7700; /* Set button background color */
-  color: #fff; /* Set text color to white */
+  background-color: pink; /* Set button background color */
+  color: white; /* Set text color to white */
   cursor: pointer; /* Show pointer cursor on hover */
   margin: 10px;
   width: 80%;
+  flex-direction: row;
 }
+
+.my-button-container {
+  background-color: red;
+}
+
+
+
+.Maintodobody {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  top: 0
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  position: fixed; /* Change to fixed positioning */
+  top: 0;
+  left: 0;
+  height: 100vh; /* Use viewport height to cover the entire vertical space */
+  width: 100vw; /* Use viewport width to cover the entire horizontal space */
+  /* background-color: red; */
+  z-index: -1;
+}
+
+
+
+
+
+
+
+
+
+
 
 #todoList {
   position: fixed;
@@ -81,23 +146,40 @@ button {
   transform: translateX(-50%);
   background-color: rgba(255, 255, 255, 0.6); /* White with 80% opacity */
   padding: 20px;
-  width: 70%;
+  width: 600px;
   height: 35%;
   z-index: 1; /* Ensure the todoList appears above the map */
   overflow-y: auto; /* Add vertical overscroll */
 
 }
 
+@media (max-width: 768px) {
+  /* Change width to 40% for screens smaller than medium */
+  #todoList {
+    width: 400px;
+  }
+}
+
+/* Remove default list styling */
+ul {
+  list-style-type: none;
+}
+
+/* Add padding to list items */
+li {
+  padding: 25px;
+  background-color: red;
+}
+
 .completed {
   text-decoration: line-through; /* Add line-through to completed todo items */
 }
 
-/* #todoInput {
-  margin-bottom: 10px; /* Add margin to the bottom of the input field */
-  border: 1px solid #ccc; /* Add a solid border with color #ccc */
-  padding: 5px; /* Add padding inside the input field */
-  box-sizing: border-box; /* Include padding and border in the input field's total width */
-} */
+
+
+
+
+
 
 ///
 
@@ -132,9 +214,6 @@ button {
   /* Add any other styles you want */
   font-family: 'Futura Bold', sans-serif; /* Apply Futura Bold font */
 }
-
-
-
 
 .Headerbuttoncontainer {
   background-color: yellow;
@@ -175,37 +254,27 @@ button {
 }
 
 
-
-
-
-
 .ThreeListcontainer {
   background-color: white;
   display: flex;
   justify-content: center; /* Horizontally center the button */;
 }
 
-.google-button-container {
-  background-color: pink;
-  /* display: flex;
-  justify-content: center; /* Horizontally center the button */; */
-}
 
 
 
 
-
-button {
+/* button {
   display: flex;
   justify-content: center; /* Horizontally center the button */;
   margin-right: 5px; /* Add margin to the right of each button */
   background-color: black; /* Set button background color */
-}
+} */
 
 .subtask-button {
   border: none; /* Remove default button border */
   padding: 15px; /* Add padding to the button */
-  background-color: orange; /* Set button background color */
+  background-color: green; /* Set button background color */
   color: #fff; /* Set text color to white */
   cursor: pointer; /* Show pointer cursor on hover */
   margin: 10px;
@@ -228,37 +297,3 @@ button {
 
 
 
-.Maintodobody {
-  z-index: 1;
-  position: fixed;
-  width: 100%;
-  top: 0
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-#map {
-  position: fixed; /* Change to fixed positioning */
-  top: 0;
-  left: 0;
-  height: 100vh; /* Use viewport height to cover the entire vertical space */
-  width: 100vw; /* Use viewport width to cover the entire horizontal space */
-  /* background-color: red; */
-  z-index: -1;
-}
-
-
-
-/* Remove default list styling */
-ul {
-  list-style-type: none;
-}
-
-/* Add padding to list items */
-li {
-  padding: 25px;
-  background-color: white;
-}

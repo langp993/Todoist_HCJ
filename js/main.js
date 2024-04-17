@@ -112,11 +112,18 @@ function addTodo() {
 
               // Create a div to contain the buttons
               const buttonsDiv = document.createElement("div");
-              buttonsDiv.id = "google-button-container"; // Adding an ID to the div
+              // You can also assign a class name to the element
+              // buttonsDiv.className = "my-button-container";
+              buttonsDiv.classList.add("my-button-container");
+              // Apply styles directly to the element
+              // buttonsDiv.style.backgroundColor = "lightblue";
+              // buttonsDiv.style.color = "black";
+              // buttonsDiv.style.padding = "10px";
 
               // Create a button for showing/hiding opening hours
               const hoursButton = document.createElement("button");
               hoursButton.textContent = "Show/Hide Hours";
+              hoursButton.style.backgroundColor = "green";
               hoursButton.onclick = function () {
                 openingHoursSpan.style.display =
                   openingHoursSpan.style.display === "none" ? "block" : "none";
