@@ -194,15 +194,28 @@ ul {
 /* Add padding to list items */
 li {
   padding: 25px;
-  background-color: red;
+  background-color: lightgreen;
+  margin: 10px;
+}
+
+/* Add padding to list items */
+.completed li {
+  padding: 25px;
+  background-color: lightgreen;
+  margin: 10px;
 }
 
 .completed {
   text-decoration: line-through; /* Add line-through to completed todo items */
 }
 
+.completed {
 
+  text-decoration: line-through; /* Add line-through to completed todo items */
+  margin-top: 0px; /* Add margin to the bottom of the lists container */
+  background-color: orange;
 
+}
 
 
 
@@ -319,14 +332,7 @@ li {
 
 
 
-.completed {
 
-  text-decoration: line-through; /* Add line-through to completed todo items */
-  margin-top: 20px; /* Add margin to the bottom of the lists container */
-  background-color: green;
-
-
-}
 
 
 
