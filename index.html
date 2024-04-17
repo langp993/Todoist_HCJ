@@ -24,7 +24,8 @@
 
           <div class="Headercontainer">
 
-            <h1 class="Todolist-H1Header">Todo List</h1>
+            <img src="/images/Todologo.webp" alt="Logo" class="logo">
+            <h1 class="Todolist-H1Header">2DOIST</h1>
 
           </div>
 
@@ -33,9 +34,9 @@
 
             <div class="Headerbuttoncontainer">
 
-            <button id="completedButton" onclick="showCompleted()">COMPLETED TASKS</button>
             <button id="activeButton" onclick="showActive()">TODO'S</button>
-            <button id="groupListButton" onclick="switchToListGroup()">GROUPS</button>
+            <button id="completedButton" onclick="showCompleted()">COMPLETED TASKS</button>
+            <!-- <button id="groupListButton" onclick="switchToListGroup()">GROUPS</button> -->
             
             </div>
 
@@ -43,10 +44,10 @@
 
             <div class="Inputbuttoncontainer">
 
-            <input type="text" id="todoInput" placeholder="Add new todo" style="display: block;">
-            <input type="text" id="locationInput" placeholder="Add location" style="display: block;">
-            <input type="date" id="dueDateInput">
-            <input type="time" id="dueTimeInput">
+            <input type="text" id="todoInput" placeholder="Add Todo" style="display: block;">
+            <input type="text" id="locationInput" placeholder="Add Location" style="display: block;">
+            <input type="date" id="dueDateInput" style="display: none;">
+            <input type="time" id="dueTimeInput" style="display: none;">
 
             <button onclick="addTodo()" class="add-button"">ADD TASK</button>
 
