@@ -195,14 +195,14 @@ ul {
 li {
   padding: 25px;
   background-color: lightgreen;
-  margin: 10px;
+  margin-bottom: 20px;
 }
 
 /* Add padding to list items */
 .completed li {
   padding: 25px;
   background-color: lightgreen;
-  margin: 10px;
+  margin: 0px;
 }
 
 .completed {

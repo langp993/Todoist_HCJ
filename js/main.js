@@ -171,7 +171,7 @@ function addTodo() {
 
               // Create a button for deleting the todo
               const deleteButton = document.createElement("button");
-              deleteButton.textContent = "❌";
+              deleteButton.textContent = "DELETE ❌";
 
               // Set styles for positioning the delete button
               // deleteButton.style.marginLeft = "auto"; // Pushes the button to the right
@@ -189,7 +189,7 @@ function addTodo() {
 
               // // Create a button for adding subtask
               const subtaskButton = document.createElement("button");
-              subtaskButton.textContent = "+";
+              subtaskButton.textContent = "Add Subtask +";
               subtaskButton.className = "subtask-button"; // Add CSS class to the button
 
               // Set styles for positioning the subtask button
@@ -244,8 +244,9 @@ function addTodo() {
               listItem.appendChild(document.createElement("br")); // Add line break // Add line break
               listItem.appendChild(directionsButton);
               listItem.appendChild(document.createElement("br")); // Add line break // Add line break
-              listItem.appendChild(deleteButton);
               listItem.appendChild(subtaskButton);
+              listItem.appendChild(document.createElement("br")); // Add line break // Add line break
+              listItem.appendChild(deleteButton);
 
               // Add event listener to toggle line-through and move to completed list on click
               listItem.addEventListener("click", function (event) {
