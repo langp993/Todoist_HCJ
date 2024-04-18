@@ -355,7 +355,7 @@ function addTodo() {
                   alert(`Reminder: Task "${todoText}" is due now!`);
                 }, timeUntilDue);
               } else {
-                alert(`Reminder: Task "${todoText}" is already overdue!`);
+                // alert(`Reminder: Task "${todoText}" is already overdue!`);
               }
             } else {
               alert("Failed to fetch place details: " + placeStatus);

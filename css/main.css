@@ -168,11 +168,12 @@ body {
 
 #todoList li {
   /* text-align: center; Center the content horizontally */
+  padding: 20px;
   display: flex;
   flex-direction: column; /* Ensure list items stack vertically */
   align-items: center; /* Center items horizontally */
-  /* width: 100%; */
-  background-color: none;
+  width: 100%;
+  background-color: grey;
   margin-bottom: 40px;
 }
 
@@ -211,10 +212,11 @@ body {
 }
 
 #completedList li {
-  text-align: center; /* Center the content horizontally */
+  /* text-align: center; Center the content horizontally */
   display: flex;
   flex-direction: column; /* Ensure list items stack vertically */
   align-items: center; /* Center items horizontally */
+  margin-bottom: 40px;
 }
 
 /* Remove default list styling */
@@ -230,22 +232,17 @@ ul {
 } */
 
 /* Add padding to list items */
-.completed li {
-  padding: 25px;
+/* .completed li {
   background-color: lightgreen;
   margin: 0px;
-}
+  padding: 20px;
+} */
 
 .completed {
   text-decoration: line-through; /* Add line-through to completed todo items */
-}
-
-.completed {
-
-  text-decoration: line-through; /* Add line-through to completed todo items */
+  padding: 20px;
   margin-top: 0px; /* Add margin to the bottom of the lists container */
   background-color: orange;
-
 }
 
 .subtask-button {
