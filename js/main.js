@@ -78,7 +78,9 @@ function addTodo() {
 
               // Create a span element for the todo text
               const todoSpan = document.createElement("span");
-              todoSpan.textContent = todoText;
+              // todoSpan.textContent = todoText;
+              todoSpan.textContent = `Todo: ${todoText}`;
+              // todoSpan.textContent = `${todoText} (${placeStatusText})`;
 
               // Apply styles directly using the style property
               todoSpan.style.backgroundColor = "pink";
@@ -98,7 +100,7 @@ function addTodo() {
               // Create a span element for the location details (name and address)
               const placeName = placeResult.name; // Get the name of the place
               const addressSpan = document.createElement("span");
-              addressSpan.textContent = `Location: ${placeName}, ${formattedAddress}`;
+              addressSpan.textContent = `Location: ${placeName}, ${formattedAddress}, Status: ${placeStatusText}`;
               // Append the location span to the list item
               listItem.appendChild(addressSpan);
 
@@ -219,35 +221,35 @@ function addTodo() {
               // // Append the buttonsDiv to the UL element
               // ulElement.appendChild(buttonsDiv);
 
-              // Create a span element for the place status
-              const statusSpan = document.createElement("span");
-              statusSpan.textContent = "Status: " + placeStatusText;
-              // Apply green color for "Open" status
-              statusSpan.style.color =
-                placeStatusText === "Open"
-                  ? "green"
-                  : placeStatusText === "Closed"
-                  ? "red"
-                  : "inherit";
+              // // Create a span element for the place status
+              // const statusSpan = document.createElement("span");
+              // statusSpan.textContent = "Status: " + placeStatusText;
+              // // Apply green color for "Open" status
+              // statusSpan.style.color =
+              //   placeStatusText === "Open"
+              //     ? "green"
+              //     : placeStatusText === "Closed"
+              //     ? "red"
+              //     : "inherit";
 
-              // Apply styles directly using the style property
-              statusSpan.style.backgroundColor = "white";
-              statusSpan.style.padding = "10px";
-              statusSpan.style.margin = "0px";
-              statusSpan.style.width = "70%";
+              // // Apply styles directly using the style property
+              // statusSpan.style.backgroundColor = "white";
+              // statusSpan.style.padding = "10px";
+              // statusSpan.style.margin = "0px";
+              // statusSpan.style.width = "70%";
 
               // Create a button for deleting the todo
               const deleteButton = document.createElement("button");
-              deleteButton.textContent = "DELETE ❌";
+              deleteButton.textContent = "❌";
+              // deleteButton.className = "deleteButton"; // Add CSS class to the button
 
-              // Set styles for positioning the delete button
-              // deleteButton.style.marginLeft = "auto"; // Pushes the button to the right
-              // deleteButton.style.border = "none"; // Removes default button border
-
-              // deleteButton.onclick = function () {
-              //   listItem.parentElement.removeChild(listItem);
-              //   removeMarker(lat, lng);
-              // };
+              deleteButton.style.backgroundColor = "orange";
+              // deleteButton.style.position = "absolute";
+              deleteButton.style.top = "0"; // Align to the top of the parent element
+              deleteButton.style.right = "0"; // Align to the right of the parent element
+              deleteButton.style.margin = "5px"; // Add margin to create space between the button and the edges
+              deleteButton.style.width = "40px";
+              deleteButton.style.height = "40px";
 
               deleteButton.onclick = function () {
                 listItem.parentElement.removeChild(listItem);
@@ -299,8 +301,8 @@ function addTodo() {
               listItem.appendChild(document.createElement("br")); // Add line break
               // listItem.appendChild(locationSpan);
               listItem.appendChild(addressSpan);
-              listItem.appendChild(document.createElement("br"));
-              listItem.appendChild(statusSpan);
+              // listItem.appendChild(document.createElement("br"));
+              // listItem.appendChild(statusSpan);
               // listItem.appendChild(document.createElement("br"));
               // listItem.appendChild(dueDateTimeSpan);
               listItem.appendChild(document.createElement("br")); // Add line break

@@ -142,13 +142,14 @@ body {
 
 #todoList {
   position: fixed;
-  bottom: 5%;
+  bottom: 0%;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(255, 255, 255, 0.6);
+  /* background-color: white; */
   padding: 20px;
-  width: 600px;
-  height: 35%;
+  width: 70%;
+  height: 65%;
   z-index: 1;
   overflow-y: auto;
   margin: 0; /* Add this line to remove default body margin */
@@ -162,7 +163,7 @@ body {
   #todoList {
     width: 100%;
     bottom: 0;
-    height: 35%;
+    height: 65%;
   }
 }
 
@@ -172,9 +173,11 @@ body {
   display: flex;
   flex-direction: column; /* Ensure list items stack vertically */
   align-items: center; /* Center items horizontally */
-  width: 100%;
-  background-color: grey;
+  width: 80%;
+  background-color: white;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
   margin-bottom: 40px;
+  border-radius: 10px; /* Round the corners */
 }
 
 .subtask {
@@ -348,7 +351,11 @@ ul {
 }
 
 
-
+/* .deleteButton {
+  background-color: #ff7700
+  top: 0;
+  left: 0;
+} */
 
 
 /* button {
