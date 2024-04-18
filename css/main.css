@@ -152,6 +152,9 @@ body {
   z-index: 1;
   overflow-y: auto;
   margin: 0; /* Add this line to remove default body margin */
+  display: flex;
+  flex-direction: column; /* Ensure list items stack vertically */
+  align-items: center; /* Center items horizontally */
 }
 
 @media (max-width: 768px) {
@@ -165,6 +168,9 @@ body {
 
 #todoList li {
   text-align: center; /* Center the content horizontally */
+  display: flex;
+  flex-direction: column; /* Ensure list items stack vertically */
+  align-items: center; /* Center items horizontally */
 }
 
 #completedList {
@@ -179,6 +185,9 @@ body {
   z-index: 1;
   overflow-y: auto;
   margin: 0; /* Add this line to remove default body margin */
+  display: flex;
+  flex-direction: column; /* Ensure list items stack vertically */
+  align-items: center; /* Center items horizontally */
 }
 
 @media (max-width: 768px) {
@@ -192,7 +201,9 @@ body {
 
 #completedList li {
   text-align: center; /* Center the content horizontally */
-  background-color: yellow;
+  display: flex;
+  flex-direction: column; /* Ensure list items stack vertically */
+  align-items: center; /* Center items horizontally */
 }
 
 /* Remove default list styling */

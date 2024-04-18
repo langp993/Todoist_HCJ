@@ -80,6 +80,12 @@ function addTodo() {
               const todoSpan = document.createElement("span");
               todoSpan.textContent = todoText;
 
+              // Apply styles directly using the style property
+              todoSpan.style.backgroundColor = "pink";
+              todoSpan.style.padding = "0px";
+              todoSpan.style.margin = "0px";
+              todoSpan.style.width = "70%";
+
               // // Create a span element for the location text
               // const locationSpan = document.createElement("span");
               // // locationSpan.textContent = locationText;
@@ -98,8 +104,8 @@ function addTodo() {
 
               // Apply styles directly using the style property
               addressSpan.style.backgroundColor = "pink";
-              addressSpan.style.padding = "20px";
-              addressSpan.style.margin = "10px";
+              addressSpan.style.padding = "0px";
+              addressSpan.style.margin = "0px";
               addressSpan.style.width = "70%";
 
               // Create a span element for the due date and time
@@ -109,9 +115,14 @@ function addTodo() {
 
               // Apply styles directly using the style property
               dueDateTimeSpan.style.backgroundColor = "yellow";
-              dueDateTimeSpan.style.padding = "20px";
-              dueDateTimeSpan.style.margin = "10px";
+              dueDateTimeSpan.style.padding = "0px";
+              dueDateTimeSpan.style.margin = "0px";
               dueDateTimeSpan.style.width = "70%";
+
+              // Create a div to contain the opening hours span
+              const openingHoursDiv = document.createElement("div");
+              openingHoursDiv.style.display = "flex"; // Set display to flex
+              openingHoursDiv.style.justifyContent = "center"; // Center content horizontally
 
               // Create a span element for the opening hours
               const openingHoursSpan = document.createElement("span");
@@ -124,9 +135,15 @@ function addTodo() {
 
               // Apply styles directly using the style property
               openingHoursSpan.style.backgroundColor = "green";
-              openingHoursSpan.style.padding = "20px";
-              openingHoursSpan.style.margin = "10px";
+              openingHoursSpan.style.padding = "0px";
+              openingHoursSpan.style.margin = "0px";
               openingHoursSpan.style.width = "70%";
+
+              // Append the opening hours span to the div
+              openingHoursDiv.appendChild(openingHoursSpan);
+
+              // Append the div to the list item
+              listItem.appendChild(openingHoursDiv);
 
               // Create a button for showing/hiding opening hours
               const hoursButton = document.createElement("button");
