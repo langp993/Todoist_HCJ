@@ -126,10 +126,10 @@ function addTodo() {
 
               // Create a span element for the opening hours
               const openingHoursSpan = document.createElement("span");
-              openingHoursSpan.textContent =
-                "Opening Hours: " +
+              openingHoursSpan.innerHTML =
+                "Opening Hours: <br><br>" +
                 (openingHours
-                  ? openingHours.weekday_text.join(", ")
+                  ? openingHours.weekday_text.join("<br>")
                   : "Not available");
               openingHoursSpan.style.display = "none"; // Initially hide opening hours
 
