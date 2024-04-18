@@ -135,13 +135,18 @@ body {
 #completedList {
   /* position: fixed; Fix the position of the list */
   bottom: 0; /* Stick the list to the bottom of the viewport */
-  max-height: 600px; /* Set a maximum height for the container */
+  height: 600px; /* Set a maximum height for the container */
   overflow-y: auto; /* Add vertical scrollbar when content exceeds container height */
   background-color: #ff7700;
   width: 100%; /* Occupy the full width of the viewport */
-  padding: 0; /* Reset padding to remove any default padding */
+  /* padding: 0; Reset padding to remove any default padding */
   display: flex; /* Use flexbox to center the items horizontally */
+  flex-direction: column;  
   justify-content: center; /* Center the items horizontally */
+  padding: 20px 0; /* Added top padding to accommodate for the fixed position header */
+  justify-content: flex-start; /* Align items at the top of the container */
+  padding-top: 20px; /* Add some top padding to create space */
+
 }
 
 #todoList li,
@@ -155,43 +160,10 @@ body {
   margin: 20px auto;
 }
 
-/* #todoList,
-#completedList {
-  position: fixed;
-  bottom: 0%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(255, 255, 255, 0.6);
-  padding: 20px;
-  width: 100%;
-  height: 65%;
-  z-index: 1;
-  overflow-y: auto;
-  margin: 0; /* Add this line to remove default body margin */
-  display: flex;
-  flex-direction: column; /* Ensure list items stack vertically */
-  overflow-y: auto; /* Add vertical scrollbar when content exceeds container height */
-} */
-
-/* #todoList li,
-#completedList li {
-  padding: 20px;
-  width: 400px;
-  background-color: white;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-  margin: 0 auto; /* Center the list items horizontally */
-  margin-bottom: 20px;
-  border-radius: 10px;
-  overflow-y: auto; /* Add vertical scrollbar when content exceeds container height */
-
-} */
-
-/* .completed {
-  text-decoration: line-through; /* Add line-through to completed todo items */
-  /* padding: 20px;
-  margin-top: 0px; Add margin to the bottom of the lists container */
-  /* background-color: orange; */
-} */
+#todoList li:first-child,
+#completedList li:first-child {
+  margin-top: 0; /* Remove top margin for the first list item */
+}
 
 @media (max-width: 768px) {
   /* Change width to 100% for screens smaller than medium */
@@ -199,7 +171,7 @@ body {
   #completedList {
     width: 100%;
     bottom: 0;
-    height: 65%;
+    height: 600px;
   }
 }
 
