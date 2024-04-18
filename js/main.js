@@ -86,7 +86,7 @@ function addTodo() {
               todoSpan.style.backgroundColor = "pink";
               todoSpan.style.padding = "0px";
               todoSpan.style.margin = "0px";
-              todoSpan.style.width = "70%";
+              todoSpan.style.width = "100%";
 
               // // Create a span element for the location text
               // const locationSpan = document.createElement("span");
@@ -105,10 +105,10 @@ function addTodo() {
               listItem.appendChild(addressSpan);
 
               // Apply styles directly using the style property
-              addressSpan.style.backgroundColor = "pink";
+              addressSpan.style.backgroundColor = "lightgreen";
               addressSpan.style.padding = "0px";
-              addressSpan.style.margin = "0px";
-              addressSpan.style.width = "70%";
+              addressSpan.style.margin = "5px 0px";
+              addressSpan.style.width = "100%";
 
               // // Create a span element for the due date and time
               // const dueDateTimeSpan = document.createElement("span");
@@ -136,10 +136,10 @@ function addTodo() {
               openingHoursSpan.style.display = "none"; // Initially hide opening hours
 
               // Apply styles directly using the style property
-              openingHoursSpan.style.backgroundColor = "white";
-              openingHoursSpan.style.padding = "10px";
-              openingHoursSpan.style.margin = "0px";
-              openingHoursSpan.style.width = "70%";
+              openingHoursSpan.style.backgroundColor = "grey";
+              openingHoursSpan.style.padding = "0px";
+              openingHoursSpan.style.margin = "5px 0px";
+              openingHoursSpan.style.width = "100%";
 
               // Append the opening hours span to the div
               openingHoursDiv.appendChild(openingHoursSpan);
@@ -151,9 +151,11 @@ function addTodo() {
               const hoursButton = document.createElement("button");
               hoursButton.textContent = "Show/Hide Open Hours";
               // hoursButton.style.backgroundColor = "green";
-              // hoursButton.style.width = "60px";
+              hoursButton.style.width = "100%";
               // hoursButton.style.display = "flex";
               // hoursButton.style.flexDirection = "row";
+              hoursButton.style.margin = "5px 0px";
+
               hoursButton.onclick = function () {
                 openingHoursSpan.style.display =
                   openingHoursSpan.style.display === "none" ? "block" : "none";
@@ -163,10 +165,12 @@ function addTodo() {
               const callButton = document.createElement("button");
               callButton.textContent = "Call Place";
               // callButton.style.backgroundColor = "orange";
-              // callButton.style.width = "60px";
+              callButton.style.width = "100%";
               // callButton.style.marginRight = "5px"; // Add right margin to create space between buttons
               // callButton.style.display = "flex";
               // callButton.style.flexDirection = "row";
+              callButton.style.margin = "0px";
+
               callButton.onclick = function () {
                 if (phoneNumber) {
                   window.open(`tel:${phoneNumber}`); // Open phone app with place's phone number
@@ -179,9 +183,11 @@ function addTodo() {
               const directionsButton = document.createElement("button");
               directionsButton.textContent = "Get Directions";
               // directionsButton.style.backgroundColor = "orange";
-              // directionsButton.style.width = "60px";
+              directionsButton.style.width = "100%";
               // directionsButton.style.display = "flex";
               // directionsButton.style.flexDirection = "row";
+              directionsButton.style.margin = "5px 0px";
+
               directionsButton.onclick = function () {
                 window.open(
                   "https://www.google.com/maps/dir/?api=1&destination=" +
@@ -240,16 +246,16 @@ function addTodo() {
 
               // Create a button for deleting the todo
               const deleteButton = document.createElement("button");
-              deleteButton.textContent = "❌";
+              deleteButton.textContent = "DELETE ❌";
               // deleteButton.className = "deleteButton"; // Add CSS class to the button
 
-              deleteButton.style.backgroundColor = "orange";
+              deleteButton.style.backgroundColor = "grey";
               // deleteButton.style.position = "absolute";
               deleteButton.style.top = "0"; // Align to the top of the parent element
               deleteButton.style.right = "0"; // Align to the right of the parent element
-              deleteButton.style.margin = "5px"; // Add margin to create space between the button and the edges
-              deleteButton.style.width = "40px";
-              deleteButton.style.height = "40px";
+              deleteButton.style.margin = "10px 0px"; // Add margin to create space between the button and the edges
+              deleteButton.style.width = "100%";
+              // deleteButton.style.height = "40px";
 
               deleteButton.onclick = function () {
                 listItem.parentElement.removeChild(listItem);
@@ -260,9 +266,11 @@ function addTodo() {
               const subtaskButton = document.createElement("button");
               subtaskButton.textContent = "Add Subtask +";
               subtaskButton.className = "subtask-button"; // Add CSS class to the button
+              subtaskButton.style.width = "100%";
 
               // Set styles for positioning the subtask button
-              // subtaskButton.style.marginLeft = "5px"; // Add margin to the left of the subtask button
+              subtaskButton.style.margin = "5px 0px"; // Add margin to the left of the subtask button
+              deleteButton.style.width = "100%";
               // subtaskButton.style.border = "none"; // Removes default button border
 
               subtaskButton.onclick = function () {

@@ -131,121 +131,92 @@ body {
 }
 
 
+#todoList,
+#completedList {
+  /* position: fixed; Fix the position of the list */
+  bottom: 0; /* Stick the list to the bottom of the viewport */
+  max-height: 600px; /* Set a maximum height for the container */
+  overflow-y: auto; /* Add vertical scrollbar when content exceeds container height */
+  background-color: #ff7700;
+  width: 100%; /* Occupy the full width of the viewport */
+  padding: 0; /* Reset padding to remove any default padding */
+  display: flex; /* Use flexbox to center the items horizontally */
+  justify-content: center; /* Center the items horizontally */
+}
 
+#todoList li,
+#completedList li {
+  padding: 20px;
+  width: 400px;
+  background-color: white;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  /* margin-bottom: 20px; */
+  border-radius: 10px;
+  margin: 20px auto;
+}
 
-
-
-
-
-
-
-
-#todoList {
+/* #todoList,
+#completedList {
   position: fixed;
   bottom: 0%;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(255, 255, 255, 0.6);
-  /* background-color: white; */
   padding: 20px;
-  width: 70%;
+  width: 100%;
   height: 65%;
   z-index: 1;
   overflow-y: auto;
   margin: 0; /* Add this line to remove default body margin */
   display: flex;
   flex-direction: column; /* Ensure list items stack vertically */
-  align-items: center; /* Center items horizontally */
-}
+  overflow-y: auto; /* Add vertical scrollbar when content exceeds container height */
+} */
+
+/* #todoList li,
+#completedList li {
+  padding: 20px;
+  width: 400px;
+  background-color: white;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  margin: 0 auto; /* Center the list items horizontally */
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow-y: auto; /* Add vertical scrollbar when content exceeds container height */
+
+} */
+
+/* .completed {
+  text-decoration: line-through; /* Add line-through to completed todo items */
+  /* padding: 20px;
+  margin-top: 0px; Add margin to the bottom of the lists container */
+  /* background-color: orange; */
+} */
 
 @media (max-width: 768px) {
-  /* Change width to 40% for screens smaller than medium */
-  #todoList {
+  /* Change width to 100% for screens smaller than medium */
+  #todoList,
+  #completedList {
     width: 100%;
     bottom: 0;
     height: 65%;
   }
 }
 
-#todoList li {
-  /* text-align: center; Center the content horizontally */
-  padding: 20px;
-  display: flex;
-  flex-direction: column; /* Ensure list items stack vertically */
-  align-items: center; /* Center items horizontally */
-  width: 80%;
-  background-color: white;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
-  margin-bottom: 40px;
-  border-radius: 10px; /* Round the corners */
-}
-
-.subtask {
-  background-color: pink;
-  padding: 20px;
-  width: 70%;
-  margin: 20px auto; /* Center horizontally */
-
-}
-
-#completedList {
-  position: fixed;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(255, 255, 255, 0.6); 
-  padding: 20px;
-  width: 600px;
-  height: 35%;
-  z-index: 1;
-  overflow-y: auto;
-  margin: 0; /* Add this line to remove default body margin */
-  display: flex;
-  flex-direction: column; /* Ensure list items stack vertically */
-  align-items: center; /* Center items horizontally */
-}
-
 @media (max-width: 768px) {
-  /* Change width to 40% for screens smaller than medium */
-  #completedList {
-    width: 100%;
+  /* Change width to 100% for screens smaller than medium */
+  #todoList li,
+  #completedList li {
+    width: 80%;
     bottom: 0;
-    height: 35%;
+    height: 65%;
   }
-}
-
-#completedList li {
-  /* text-align: center; Center the content horizontally */
-  display: flex;
-  flex-direction: column; /* Ensure list items stack vertically */
-  align-items: center; /* Center items horizontally */
-  margin-bottom: 40px;
 }
 
 /* Remove default list styling */
 ul {
+  margin: 0; /* Reset margin to remove any default margin */
   list-style-type: none;
-}
-
-/* Add padding to list items */
-/* li {
-  padding: 25px;
-  background-color: lightgreen;
-  margin-bottom: 20px;
-} */
-
-/* Add padding to list items */
-/* .completed li {
-  background-color: lightgreen;
-  margin: 0px;
-  padding: 20px;
-} */
-
-.completed {
-  text-decoration: line-through; /* Add line-through to completed todo items */
-  padding: 20px;
-  margin-top: 0px; /* Add margin to the bottom of the lists container */
-  background-color: orange;
 }
 
 .subtask-button {
