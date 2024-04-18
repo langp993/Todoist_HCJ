@@ -195,7 +195,7 @@ background-color: aquamarine;
     width: 80%;
     bottom: 0;
     height: 65%;
-    overflow-y: auto; /* Add vertical scrollbar when content exceeds container height */
+    /* overflow-y: auto; Add vertical scrollbar when content exceeds container height */
   }
 }
 
