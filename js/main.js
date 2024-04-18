@@ -269,8 +269,7 @@ function addTodo() {
               subtaskButton.style.width = "100%";
 
               // Set styles for positioning the subtask button
-              subtaskButton.style.margin = "5px 0px"; // Add margin to the left of the subtask button
-              deleteButton.style.width = "100%";
+              subtaskButton.style.margin = "0px"; // Add margin to the left of the subtask button
               // subtaskButton.style.border = "none"; // Removes default button border
 
               subtaskButton.onclick = function () {

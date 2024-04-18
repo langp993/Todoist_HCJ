@@ -130,6 +130,18 @@ body {
   z-index: -1;
 }
 
+/* @media (max-width: 768px) {
+  #map {
+    position: static; /* Remove fixed positioning */
+  }
+} */
+
+#todoList li .subtask,
+#completedList li .subtask {
+  /* position: fixed; Fix the position of the list */
+background-color: aquamarine;
+}
+
 
 #todoList,
 #completedList {
@@ -172,6 +184,7 @@ body {
     width: 100%;
     bottom: 0;
     height: 600px;
+    overflow-y: auto; /* Add vertical scrollbar when content exceeds container height */
   }
 }
 
@@ -182,6 +195,7 @@ body {
     width: 80%;
     bottom: 0;
     height: 65%;
+    overflow-y: auto; /* Add vertical scrollbar when content exceeds container height */
   }
 }
 
