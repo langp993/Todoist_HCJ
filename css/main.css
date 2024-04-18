@@ -167,10 +167,21 @@ body {
 }
 
 #todoList li {
-  text-align: center; /* Center the content horizontally */
+  /* text-align: center; Center the content horizontally */
   display: flex;
   flex-direction: column; /* Ensure list items stack vertically */
   align-items: center; /* Center items horizontally */
+  /* width: 100%; */
+  background-color: none;
+  margin-bottom: 40px;
+}
+
+.subtask {
+  background-color: pink;
+  padding: 20px;
+  width: 70%;
+  margin: 20px auto; /* Center horizontally */
+
 }
 
 #completedList {
@@ -247,13 +258,7 @@ ul {
   width: 80%;
 }
 
-.subtask {
-  background-color: pink;
-  padding: 20px;
-  width: 70%;
-  margin: 20px auto; /* Center horizontally */
 
-}
 
 
 

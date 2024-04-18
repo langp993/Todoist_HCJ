@@ -108,16 +108,16 @@ function addTodo() {
               addressSpan.style.margin = "0px";
               addressSpan.style.width = "70%";
 
-              // Create a span element for the due date and time
-              const dueDateTimeSpan = document.createElement("span");
-              dueDateTimeSpan.textContent = `Due Date & Time: ${dueDate} ${dueTime}`;
-              listItem.appendChild(dueDateTimeSpan);
+              // // Create a span element for the due date and time
+              // const dueDateTimeSpan = document.createElement("span");
+              // dueDateTimeSpan.textContent = `Due Date & Time: ${dueDate} ${dueTime}`;
+              // listItem.appendChild(dueDateTimeSpan);
 
-              // Apply styles directly using the style property
-              dueDateTimeSpan.style.backgroundColor = "yellow";
-              dueDateTimeSpan.style.padding = "0px";
-              dueDateTimeSpan.style.margin = "0px";
-              dueDateTimeSpan.style.width = "70%";
+              // // Apply styles directly using the style property
+              // dueDateTimeSpan.style.backgroundColor = "yellow";
+              // dueDateTimeSpan.style.padding = "0px";
+              // dueDateTimeSpan.style.margin = "0px";
+              // dueDateTimeSpan.style.width = "70%";
 
               // Create a div to contain the opening hours span
               const openingHoursDiv = document.createElement("div");
@@ -134,8 +134,8 @@ function addTodo() {
               openingHoursSpan.style.display = "none"; // Initially hide opening hours
 
               // Apply styles directly using the style property
-              openingHoursSpan.style.backgroundColor = "green";
-              openingHoursSpan.style.padding = "0px";
+              openingHoursSpan.style.backgroundColor = "white";
+              openingHoursSpan.style.padding = "10px";
               openingHoursSpan.style.margin = "0px";
               openingHoursSpan.style.width = "70%";
 
@@ -230,6 +230,12 @@ function addTodo() {
                   ? "red"
                   : "inherit";
 
+              // Apply styles directly using the style property
+              statusSpan.style.backgroundColor = "white";
+              statusSpan.style.padding = "10px";
+              statusSpan.style.margin = "0px";
+              statusSpan.style.width = "70%";
+
               // Create a button for deleting the todo
               const deleteButton = document.createElement("button");
               deleteButton.textContent = "DELETE ❌";
@@ -295,8 +301,8 @@ function addTodo() {
               listItem.appendChild(addressSpan);
               listItem.appendChild(document.createElement("br"));
               listItem.appendChild(statusSpan);
-              listItem.appendChild(document.createElement("br"));
-              listItem.appendChild(dueDateTimeSpan);
+              // listItem.appendChild(document.createElement("br"));
+              // listItem.appendChild(dueDateTimeSpan);
               listItem.appendChild(document.createElement("br")); // Add line break
               listItem.appendChild(openingHoursSpan);
               listItem.appendChild(hoursButton);
