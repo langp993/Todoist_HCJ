@@ -136,10 +136,17 @@ body {
   }
 } */
 
+
+
+
+
+
 #todoList li .subtask,
 #completedList li .subtask {
   /* position: fixed; Fix the position of the list */
 background-color: aquamarine;
+width: 80px;
+overflow-y: auto;
 }
 
 
@@ -149,7 +156,7 @@ background-color: aquamarine;
   bottom: 0; /* Stick the list to the bottom of the viewport */
   height: 600px; /* Set a maximum height for the container */
   overflow-y: auto; /* Add vertical scrollbar when content exceeds container height */
-  background-color: #ff7700;
+  background-color: orange;
   width: 100%; /* Occupy the full width of the viewport */
   /* padding: 0; Reset padding to remove any default padding */
   display: flex; /* Use flexbox to center the items horizontally */
@@ -177,6 +184,17 @@ background-color: aquamarine;
   margin-top: 0; /* Remove top margin for the first list item */
 }
 
+#todoList li .subtask,
+#completedList li .subtask{
+  padding: 20px;
+  width: 300px;
+  background-color: white;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  /* margin-bottom: 20px; */
+  border-radius: 10px;
+  margin: 20px auto;
+}
+
 @media (max-width: 768px) {
   /* Change width to 100% for screens smaller than medium */
   #todoList,
@@ -192,6 +210,17 @@ background-color: aquamarine;
   /* Change width to 100% for screens smaller than medium */
   #todoList li,
   #completedList li {
+    width: 80%;
+    bottom: 0;
+    /* height: 100%; */
+    /* overflow-y: auto; Add vertical scrollbar when content exceeds container height */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Change width to 100% for screens smaller than medium */
+  #todoList li .subtask,
+  #completedList li .subtask {
     width: 80%;
     bottom: 0;
     /* height: 100%; */
@@ -215,7 +244,13 @@ ul {
   width: 80%;
 }
 
-
+#todoList li .subtask,
+#completedList li .subtask {
+  /* position: fixed; Fix the position of the list */
+background-color: aquamarine;
+/* width: 80px; */
+/* overflow-y: auto; */
+}
 
 
 
