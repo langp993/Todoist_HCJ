@@ -83,10 +83,12 @@ function addTodo() {
               // todoSpan.textContent = `${todoText} (${placeStatusText})`;
 
               // Apply styles directly using the style property
-              todoSpan.style.backgroundColor = "pink";
+              todoSpan.style.backgroundColor = "none";
               todoSpan.style.padding = "0px";
-              todoSpan.style.margin = "0px";
               todoSpan.style.width = "100%";
+              todoSpan.style.margin = "0px"; // Add margin to create space between todo text and location text
+              todoSpan.style.display = "block"; // Display as block element to prevent overlapping
+              todoSpan.style.fontWeight = "bold"; // Make the text bold
 
               // // Create a span element for the location text
               // const locationSpan = document.createElement("span");
@@ -105,10 +107,34 @@ function addTodo() {
               listItem.appendChild(addressSpan);
 
               // Apply styles directly using the style property
-              addressSpan.style.backgroundColor = "lightgreen";
+              addressSpan.style.backgroundColor = "none";
               addressSpan.style.padding = "0px";
-              addressSpan.style.margin = "5px 0px";
+              // addressSpan.style.margin = "5px 0px";
               addressSpan.style.width = "100%";
+              addressSpan.style.margin = "0px"; // Add margin to create space between todo text and location text
+              addressSpan.style.display = "block"; // Display as block element to prevent overlapping
+              addressSpan.style.fontWeight = "bold"; // Make the text bold
+
+              // Create logo elements
+              // const todoLogo = document.createElement("img");
+              // todoLogo.src = "images/todoicon.png"; // Set the source of the todo logo image
+              // todoLogo.alt = "Todo Logo"; // Set alt text for accessibility
+              // todoLogo.style.width = "26px"; // Match the font size of the text
+              // todoLogo.style.height = "26px"; // Match the font size of the text
+              // todoLogo.style.float = "left"; // Position the logo on the left
+              // todoLogo.style.marginRight = "5px"; // Adjust margin as needed
+
+              // const locationLogo = document.createElement("img");
+              // locationLogo.src = "images/locationicon.png"; // Set the source of the location logo image
+              // locationLogo.alt = "Location Logo"; // Set alt text for accessibility
+              // locationLogo.style.width = "26px"; // Match the font size of the text
+              // locationLogo.style.height = "26px"; // Match the font size of the text
+              // locationLogo.style.float = "left"; // Position the logo on the left
+              // locationLogo.style.marginRight = "5px"; // Adjust margin as needed
+
+              // Append the logos to their respective spans
+              // todoSpan.appendChild(todoLogo);
+              // addressSpan.appendChild(locationLogo);
 
               // // Create a span element for the due date and time
               // const dueDateTimeSpan = document.createElement("span");
@@ -124,8 +150,8 @@ function addTodo() {
               // Create a div to contain the opening hours span
               const openingHoursDiv = document.createElement("div");
               openingHoursDiv.style.display = "flex"; // Set display to flex
-              openingHoursDiv.style.justifyContent = "center"; // Center content horizontally
-
+              openingHoursDiv.style.flexDirection = "column"; // Stack elements vertically
+              openingHoursDiv.style.alignItems = "center"; // Center content horizontally
               // Create a span element for the opening hours
               const openingHoursSpan = document.createElement("span");
               openingHoursSpan.innerHTML =
@@ -136,8 +162,12 @@ function addTodo() {
               openingHoursSpan.style.display = "none"; // Initially hide opening hours
 
               // Apply styles directly using the style property
-              openingHoursSpan.style.backgroundColor = "grey";
+              openingHoursSpan.style.backgroundColor = "lightgrey";
+              openingHoursSpan.style.boxShadow =
+                "0px 0px 4px rgba(0, 0, 0, 0.5)";
+              // openingHoursSpan.style.borderRadius = "10px"; // Adjust the value as needed
               openingHoursSpan.style.padding = "0px";
+              openingHoursDiv.style.boxSizing = "border-box";
               openingHoursSpan.style.margin = "5px 0px";
               openingHoursSpan.style.width = "100%";
 
