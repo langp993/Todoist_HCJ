@@ -1,5 +1,3 @@
-///!SECTION (CGP) TODOLIST
-
 let map;
 let markers = [];
 let activeList; // Store reference to the active list
@@ -43,15 +41,6 @@ function addTodo() {
   const dueDate = dueDateInput.value;
   const dueTime = dueTimeInput.value;
 
-  // // If the input is not empty
-  // if (todoText !== "" && locationText !== "") {
-  //   // Use Geocoding service to convert address to coordinates
-  //   const geocoder = new google.maps.Geocoder();
-  //   geocoder.geocode({ address: locationText }, function (results, status) {
-  //     if (status === google.maps.GeocoderStatus.OK && results[0]) {
-  //       const lat = results[0].geometry.location.lat();
-  //       const lng = results[0].geometry.location.lng();
-
   // If the input is not empty
   if (todoText !== "" && locationText !== "") {
     // Use Geocoding service to convert address to coordinates
@@ -89,15 +78,6 @@ function addTodo() {
               todoSpan.style.margin = "0px"; // Add margin to create space between todo text and location text
               todoSpan.style.display = "block"; // Display as block element to prevent overlapping
               todoSpan.style.fontWeight = "bold"; // Make the text bold
-
-              // // Create a span element for the location text
-              // const locationSpan = document.createElement("span");
-              // // locationSpan.textContent = locationText;
-              // locationSpan.textContent = `Location: (${lat}, ${lng})`;
-
-              // // Create a span element for the location address
-              // const addressSpan = document.createElement("span");
-              // addressSpan.textContent = "Location: " + formattedAddress;
 
               // Create a span element for the location details (name and address)
               const placeName = placeResult.name; // Get the name of the place
@@ -283,7 +263,7 @@ function addTodo() {
               // deleteButton.style.position = "absolute";
               deleteButton.style.top = "0"; // Align to the top of the parent element
               deleteButton.style.right = "0"; // Align to the right of the parent element
-              deleteButton.style.margin = "10px 0px"; // Add margin to create space between the button and the edges
+              deleteButton.style.margin = "5px 0px 0px 0px"; // Add margin to create space between the button and the edges
               deleteButton.style.width = "100%";
               // deleteButton.style.height = "40px";
 
@@ -318,7 +298,7 @@ function addTodo() {
               // if (placeResult.photos && placeResult.photos.length > 0) {
               //   const photo = placeResult.photos[0]; // Get the first photo
               //   const photoUrl = photo.getUrl({
-              //     maxWidth: 400,
+              //     maxWidth: 300,
               //     maxHeight: 200,
               //   });
               //   const photoImg = document.createElement("img");

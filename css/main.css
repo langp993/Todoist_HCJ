@@ -2,15 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-  //////ChatGPT
+body {
+  margin: 0;
+  padding: 0;
+}
 
-  /* html, body {
-    margin: 0;
-    padding: 0;
-  } */
+.Headercontainer {
+  background-color: white;
+  display: flex;
+  justify-content: center; /* Horizontally center the button */;
+  align-items: center; /* Center items vertically */
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
+
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  margin-right: 15px; /* Add margin to create space between the logo and the header */
+}
+
+.Todolist-H1Header {
+  color: blue; /* Set text color to red */
+  font-size: 24px; /* Set font size */
+  /* Add any other styles you want */
+  font-family: 'Futura Bold', sans-serif; /* Apply Futura Bold font */
+}
 
 
-  
+
+
+
+
+.Headerbuttoncontainer {
+  background-color: white;
+  display: flex;
+  justify-content: center; /* Horizontally center the button */;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
+
+}
 
 /* CSS for buttons inside Headerbuttoncontainer */
 .Headerbuttoncontainer button {
@@ -24,6 +55,43 @@
 
 
 
+.Inputbuttoncontainer {
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Horizontally center the button */;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
+  margin: 20px;
+  padding: 5px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.add-button {
+  /* margin-right: 20px; */
+  width: 240px;
+  background-color: #ff7700;
+}
+
+.ThreeListcontainer {
+  background-color: white;
+  display: flex;
+  justify-content: center; /* Horizontally center the button */;
+}
+
+.Maintodobody {
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    top: 0
+}
+  
+
+
+
 
 
 .input-container {
@@ -33,7 +101,6 @@
 
 #todoInput {
   margin: 10px; /* Add margin to the bottom of the input container */
-  /* flex: 1; Grow to fill available space */
   border: 1px solid #ccc; /* Add a solid border with color #ccc */
   padding: 5px; /* Add padding inside the input field */
   box-sizing: border-box; /* Include padding and border in the input field's total width */
@@ -43,11 +110,6 @@
 
 #todoInput:focus {
   outline: none; /* Remove the outline when input field is focused */
-}
-
-/* CSS for Autocomplete input */
-.pac-container {
-  width: 500px; /* Adjust the width as needed */
 }
 
 #locationInput {
@@ -60,6 +122,11 @@
 
 #locationInput:focus {
   outline: none; /* Remove the outline when input field is focused */
+}
+
+/* CSS for Autocomplete input */
+.pac-container {
+  width: 500px; /* Adjust the width as needed */
 }
 
 #dueDateInput {
@@ -82,14 +149,26 @@
   width: 80%;
 }
 
+#map {
+  position: fixed; /* Change to fixed positioning */
+  top: 0;
+  left: 0;
+  height: 100vh; /* Use viewport height to cover the entire vertical space */
+  width: 100vw; /* Use viewport width to cover the entire horizontal space */
+  /* background-color: red; */
+  z-index: -1;
+}
 
 
 
-/* buttonsDiv.className = "my-button-container"; */
 
 
 
-
+/* Remove default list styling */
+ul {
+  margin: 0; /* Reset margin to remove any default margin */
+  list-style-type: none;
+}
 
 button {
   border: none; /* Remove default button border */
@@ -102,45 +181,6 @@ button {
   flex-direction: row;
 }
 
-/* .my-button-container {
-  background-color: red;
-} */
-
-
-
-.Maintodobody {
-  z-index: 1;
-  position: fixed;
-  width: 100%;
-  top: 0
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-#map {
-  position: fixed; /* Change to fixed positioning */
-  top: 0;
-  left: 0;
-  height: 100vh; /* Use viewport height to cover the entire vertical space */
-  width: 100vw; /* Use viewport width to cover the entire horizontal space */
-  /* background-color: red; */
-  z-index: -1;
-}
-
-/* @media (max-width: 768px) {
-  #map {
-    position: static; /* Remove fixed positioning */
-  }
-} */
-
-
-
-
-
-
 #todoList li .subtask,
 #completedList li .subtask {
   /* position: fixed; Fix the position of the list */
@@ -148,7 +188,6 @@ body {
 width: 80px;
 overflow-y: auto;
 }
-
 
 #todoList,
 #completedList {
@@ -158,7 +197,6 @@ overflow-y: auto;
   overflow-y: auto; /* Add vertical scrollbar when content exceeds container height */
   background-color: none;
   width: 100%; /* Occupy the full width of the viewport */
-  /* padding: 0; Reset padding to remove any default padding */
   display: flex; /* Use flexbox to center the items horizontally */
   flex-direction: column;  
   justify-content: center; /* Center the items horizontally */
@@ -228,12 +266,6 @@ overflow-y: auto;
   }
 }
 
-/* Remove default list styling */
-ul {
-  margin: 0; /* Reset margin to remove any default margin */
-  list-style-type: none;
-}
-
 .subtask-button {
   border: none; /* Remove default button border */
   padding: 15px; /* Add padding to the button */
@@ -252,120 +284,3 @@ color: black;
 /* width: 80px; */
 /* overflow-y: auto; */
 }
-
-
-
-
-///
-
-
-.input-container {
-  margin-bottom: 10px; /* Add margin to the bottom of the input container */
-}
-
-
-.lists-container {
-  margin-bottom: 10px; /* Add margin to the bottom of the lists container */
-  margin-top: 70px; /* Add margin to the bottom of the lists container */
-  background-color: pink;
-  width: 50%;
-
-
-}
-
-
-
-.Headercontainer {
-  background-color: white;
-  display: flex;
-  justify-content: center; /* Horizontally center the button */;
-  align-items: center; /* Center items vertically */
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
-
-}
-
-.logo {
-  width: 30px;
-  height: 30px;
-  justify-content: center;
-  margin-right: 15px; /* Add margin to create space between the logo and the header */
-}
-
-.Todolist-H1Header {
-  color: blue; /* Set text color to red */
-  font-size: 24px; /* Set font size */
-  /* Add any other styles you want */
-  font-family: 'Futura Bold', sans-serif; /* Apply Futura Bold font */
-}
-
-.Headerbuttoncontainer {
-  background-color: white;
-  display: flex;
-  justify-content: center; /* Horizontally center the button */;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
-
-}
-
-.Inputbuttoncontainer {
-  background-color: lightgrey;
-  display: flex;
-  flex-direction: row;
-  justify-content: center; /* Horizontally center the button */;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
-  margin: 20px;
-  padding: 5px;
-}
-
-/* .Inputbuttoncontainer {
-  display: flex;
-  flex-direction: row;
-  /* align-items: flex-start; */
-  justify-content: center; /* Horizontally center the button */;
-
-} */
-
-.button-container {
-  display: flex;
-  align-items: center;
-  
-}
-
-.add-button {
-  /* margin-right: 20px; */
-  width: 240px;
-  background-color: #ff7700;
-}
-
-
-.ThreeListcontainer {
-  background-color: white;
-  display: flex;
-  justify-content: center; /* Horizontally center the button */;
-}
-
-
-/* .deleteButton {
-  background-color: #ff7700
-  top: 0;
-  left: 0;
-} */
-
-
-/* button {
-  display: flex;
-  justify-content: center; /* Horizontally center the button */;
-  margin-right: 5px; /* Add margin to the right of each button */
-  background-color: black; /* Set button background color */
-} */
-
-
-
-
-
-
-
-
-
-
-
-
