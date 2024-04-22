@@ -49,6 +49,7 @@ body {
   /* For example: */
   background-color: black;
   color: white;
+  width: 400px;
 }
 
 
@@ -61,8 +62,18 @@ body {
   flex-direction: row;
   justify-content: center; /* Horizontally center the button */;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
-  margin: 20px;
+  margin: 20px auto; /* Center horizontally */
   padding: 5px;
+  width: 700px;
+  /* width: 90%; */
+
+}
+
+@media (max-width: 768px) {
+  /* Change width to 100% for screens smaller than medium */
+  .Inputbuttoncontainer {
+    width: 90%;
+  }
 }
 
 .button-container {
