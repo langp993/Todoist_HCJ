@@ -13,7 +13,6 @@ body {
   justify-content: center; /* Horizontally center the button */;
   align-items: center; /* Center items vertically */
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
-
 }
 
 .logo {
@@ -49,7 +48,7 @@ body {
   /* For example: */
   background-color: black;
   color: white;
-  width: 400px;
+  width: 300px;
 }
 
 
@@ -202,19 +201,17 @@ overflow-y: auto;
 
 #todoList,
 #completedList {
-  /* position: fixed; Fix the position of the list */
+  position: fixed; /* Fix the position of the list */
   bottom: 0; /* Stick the list to the bottom of the viewport */
-  height: 600px; /* Set a maximum height for the container */
+  height: 65%; /* Set a maximum height for the container */
   overflow-y: auto; /* Add vertical scrollbar when content exceeds container height */
   background-color: none;
   width: 100%; /* Occupy the full width of the viewport */
   display: flex; /* Use flexbox to center the items horizontally */
-  flex-direction: column;  
-  justify-content: center; /* Center the items horizontally */
+  flex-direction: column;
+  justify-content: flex-start; /* Center the items horizontally */
   padding: 20px 0; /* Added top padding to accommodate for the fixed position header */
-  justify-content: flex-start; /* Align items at the top of the container */
-  padding-top: 20px; /* Add some top padding to create space */
-
+  z-index: -1;
 }
 
 #todoList li,
