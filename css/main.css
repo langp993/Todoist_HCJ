@@ -203,9 +203,9 @@ overflow-y: auto;
 #completedList {
   position: fixed; /* Fix the position of the list */
   bottom: 0; /* Stick the list to the bottom of the viewport */
-  height: 65%; /* Set a maximum height for the container */
+  height: 70%; /* Set a maximum height for the container */
   overflow-y: auto; /* Add vertical scrollbar when content exceeds container height */
-  background-color: none;
+  background-color: rgba(255, 255, 255, 0.8); /* Transparent white */
   width: 100%; /* Occupy the full width of the viewport */
   display: flex; /* Use flexbox to center the items horizontally */
   flex-direction: column;
@@ -247,7 +247,7 @@ overflow-y: auto;
   #completedList {
     width: 100%;
     bottom: 0;
-    height: 600px;
+    height: 70%;
     /* overflow-y: auto; Add vertical scrollbar when content exceeds container height */
   }
 }
