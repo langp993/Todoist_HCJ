@@ -22,7 +22,7 @@ body {
 }
 
 .Headercontainer {
-  background-color: white;
+  background-color: rgb(0, 198, 89);
   display: flex;
   justify-content: center; /* Horizontally center the button */;
   align-items: center; /* Center items vertically */
@@ -37,7 +37,7 @@ body {
 }
 
 .Todolist-H1Header {
-  color: black; /* Set text color to red */
+  color: white; /* Set text color to red */
   font-size: 35px; /* Set font size */
   /* Add any other styles you want */
   font-family: 'Futura Bold', sans-serif; /* Apply Futura Bold font */
