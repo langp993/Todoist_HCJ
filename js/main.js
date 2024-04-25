@@ -70,6 +70,10 @@ function addTodo() {
               // todoSpan.textContent = todoText;
               todoSpan.textContent = `Todo: ${todoText}`;
               // todoSpan.textContent = `${todoText} (${placeStatusText})`;
+              // Apply styles
+              todoSpan.style.fontWeight = "bold"; // Example style
+              todoSpan.style.fontSize = "25px"; // Example style
+              todoSpan.style.color = "black"; // Change font color to red
 
               // Apply styles directly using the style property
               todoSpan.style.backgroundColor = "none";
@@ -93,29 +97,9 @@ function addTodo() {
               addressSpan.style.width = "100%";
               addressSpan.style.margin = "0px"; // Add margin to create space between todo text and location text
               addressSpan.style.display = "block"; // Display as block element to prevent overlapping
-              addressSpan.style.fontWeight = "bold"; // Make the text bold
-
-              // Create logo elements
-              // const todoLogo = document.createElement("img");
-              // todoLogo.src = "images/todoicon.png"; // Set the source of the todo logo image
-              // todoLogo.alt = "Todo Logo"; // Set alt text for accessibility
-              // todoLogo.style.width = "26px"; // Match the font size of the text
-              // todoLogo.style.height = "26px"; // Match the font size of the text
-              // todoLogo.style.float = "left"; // Position the logo on the left
-              // todoLogo.style.marginRight = "5px"; // Adjust margin as needed
-
-              // const locationLogo = document.createElement("img");
-              // locationLogo.src = "images/locationicon.png"; // Set the source of the location logo image
-              // locationLogo.alt = "Location Logo"; // Set alt text for accessibility
-              // locationLogo.style.width = "26px"; // Match the font size of the text
-              // locationLogo.style.height = "26px"; // Match the font size of the text
-              // locationLogo.style.float = "left"; // Position the logo on the left
-              // locationLogo.style.marginRight = "5px"; // Adjust margin as needed
-
-              // Append the logos to their respective spans
-              // todoSpan.appendChild(todoLogo);
-              // addressSpan.appendChild(locationLogo);
-
+              // addressSpan.style.fontWeight = "bold"; // Make the text bold
+              addressSpan.style.fontSize = "20px"; // Example style
+              addressSpan.style.color = "black"; // Change font color to red
               // // Create a span element for the due date and time
               // const dueDateTimeSpan = document.createElement("span");
               // dueDateTimeSpan.textContent = `Due Date & Time: ${dueDate} ${dueTime}`;
@@ -126,6 +110,10 @@ function addTodo() {
               // dueDateTimeSpan.style.padding = "0px";
               // dueDateTimeSpan.style.margin = "0px";
               // dueDateTimeSpan.style.width = "70%";
+
+              // Create a div to contain the buttons
+              const buttonsDiv = document.createElement("div");
+              buttonsDiv.classList.add("my-button-container");
 
               // Create a div to contain the opening hours span
               const openingHoursDiv = document.createElement("div");
@@ -148,7 +136,7 @@ function addTodo() {
               // openingHoursSpan.style.borderRadius = "10px"; // Adjust the value as needed
               openingHoursSpan.style.padding = "0px";
               openingHoursDiv.style.boxSizing = "border-box";
-              openingHoursSpan.style.margin = "5px 0px";
+              // openingHoursSpan.style.margin = "5px 0px";
               openingHoursSpan.style.width = "100%";
 
               // Append the opening hours span to the div
@@ -159,27 +147,36 @@ function addTodo() {
 
               // Create a button for showing/hiding opening hours
               const hoursButton = document.createElement("button");
-              hoursButton.textContent = "Show/Hide Open Hours";
+              hoursButton.classList.add("hoursButton");
+
+              // hoursButton.textContent = "Show/Hide Open Hours";
+              hoursButton.innerHTML = `<img src="/images/stillon.jpg" alt="Show/Hide Open Hours" style="width: 40px; height: 40px;">`;
               // hoursButton.style.backgroundColor = "green";
-              hoursButton.style.width = "100%";
+              hoursButton.style.width = "60px";
+              hoursButton.style.height = "60px";
               // hoursButton.style.display = "flex";
               // hoursButton.style.flexDirection = "row";
-              hoursButton.style.margin = "5px 0px";
-
+              // hoursButton.style.margin = "0px 5px";
+              hoursButton.classList.add("hoursButton");
               hoursButton.onclick = function () {
+                console.log("task display", openingHoursSpan.style.display);
                 openingHoursSpan.style.display =
                   openingHoursSpan.style.display === "none" ? "block" : "none";
               };
 
               // Create a button for calling the place
               const callButton = document.createElement("button");
-              callButton.textContent = "Call Place";
+              // callButton.textContent = "Call Place";
+              callButton.innerHTML = `<img src="/images/phonered.png" alt="Show/Hide Open Hours" style="width: 40px; height: 40px;">`;
               // callButton.style.backgroundColor = "orange";
-              callButton.style.width = "100%";
+              callButton.classList.add("callButton");
+
+              callButton.style.width = "60px";
+              callButton.style.height = "60px";
               // callButton.style.marginRight = "5px"; // Add right margin to create space between buttons
               // callButton.style.display = "flex";
               // callButton.style.flexDirection = "row";
-              callButton.style.margin = "0px";
+              // callButton.style.margin = "0px 5px";
 
               callButton.onclick = function () {
                 if (phoneNumber) {
@@ -191,12 +188,16 @@ function addTodo() {
 
               // Create a button for getting directions
               const directionsButton = document.createElement("button");
-              directionsButton.textContent = "Get Directions";
+              // directionsButton.textContent = "Get Directions";
+              directionsButton.classList.add("directionsButton");
+
+              directionsButton.innerHTML = `<img src="/images/directions.png" alt="Show/Hide Open Hours" style="width: 40px; height: 40px;">`;
               // directionsButton.style.backgroundColor = "orange";
-              directionsButton.style.width = "100%";
+              directionsButton.style.width = "60px";
+              directionsButton.style.height = "60px";
               // directionsButton.style.display = "flex";
               // directionsButton.style.flexDirection = "row";
-              directionsButton.style.margin = "5px 0px";
+              // directionsButton.style.margin = "0px 5px";
 
               directionsButton.onclick = function () {
                 window.open(
@@ -205,21 +206,6 @@ function addTodo() {
                 );
               };
 
-              // Create a div to contain the buttons
-              const buttonsDiv = document.createElement("div");
-              // buttonsDiv.style.display = "flex"; // Set display to flex to lay out children in a row
-              // buttonsDiv.style.marginTop = "10px"; // Add top margin to the buttons container
-              // You can also assign a class name to the element
-              // buttonsDiv.className = "my-button-container";
-              // buttonsDiv.classList.add("my-button-container");
-              // Apply styles directly to the element
-
-              // buttonsDiv.style.backgroundColor = "pink";
-              // buttonsDiv.style.color = "black";
-              // buttonsDiv.style.paddingTop = "10px";
-              // buttonsDiv.style.margin = "50px";
-              // buttonsDiv.style.height = "150px";
-
               // Append buttons to the div
               buttonsDiv.appendChild(hoursButton);
               buttonsDiv.appendChild(callButton);
@@ -227,6 +213,29 @@ function addTodo() {
 
               // Append the buttonsDiv to the listItem
               listItem.appendChild(buttonsDiv);
+
+              // Create a div to contain the buttons
+              // const buttonsDiv = document.createElement("div");
+              // buttonsDiv.style.display = "flex"; // Set display to flex to lay out children in a row
+              // buttonsDiv.style.marginTop = "10px"; // Add top margin to the buttons container
+              // // You can also assign a class name to the element
+              // // buttonsDiv.className = "my-button-container";
+              // buttonsDiv.classList.add("my-button-container");
+              // // Apply styles directly to the element
+
+              // buttonsDiv.style.backgroundColor = "pink";
+              // // buttonsDiv.style.color = "black";
+              // // buttonsDiv.style.paddingTop = "10px";
+              // // buttonsDiv.style.margin = "50px";
+              // // buttonsDiv.style.height = "150px";
+
+              // // Append buttons to the div
+              // buttonsDiv.appendChild(hoursButton);
+              // buttonsDiv.appendChild(callButton);
+              // buttonsDiv.appendChild(directionsButton);
+
+              // // Append the buttonsDiv to the listItem
+              // listItem.appendChild(buttonsDiv);
 
               // // Append the div to the document body or any other container element
               // document.body.appendChild(buttonsDiv);
@@ -256,15 +265,21 @@ function addTodo() {
 
               // Create a button for deleting the todo
               const deleteButton = document.createElement("button");
-              deleteButton.textContent = "DELETE ❌";
+              deleteButton.textContent = "Delete Task";
+              // deleteButton.textContent = "DELETE ❌";
               // deleteButton.className = "deleteButton"; // Add CSS class to the button
 
-              deleteButton.style.backgroundColor = "grey";
+              deleteButton.style.backgroundColor = "red";
+              deleteButton.classList.add("deleteButton");
+
               // deleteButton.style.position = "absolute";
               deleteButton.style.top = "0"; // Align to the top of the parent element
               deleteButton.style.right = "0"; // Align to the right of the parent element
-              deleteButton.style.margin = "5px 0px 0px 0px"; // Add margin to create space between the button and the edges
+              deleteButton.style.height = "45px"; // Add margin to create space between the button and the edges
+              deleteButton.style.margin = "20px 0px 0px 0px"; // Add margin to create space between the button and the edges
               deleteButton.style.width = "100%";
+              // deleteButton.style.borderRadius = "30px"; // Change font color to red
+
               // deleteButton.style.height = "40px";
 
               deleteButton.onclick = function () {
@@ -272,11 +287,17 @@ function addTodo() {
                 removeMarker(formattedAddress);
               };
 
+              // Create a button for deleting the todo
+              const completeButton = document.createElement("button");
+              completeButton.textContent = "Complete Task";
+              completeButton.className = "complete-button"; // Add CSS class to the button
+
               // // Create a button for adding subtask
               const subtaskButton = document.createElement("button");
               subtaskButton.textContent = "Add Subtask +";
               subtaskButton.className = "subtask-button"; // Add CSS class to the button
               subtaskButton.style.width = "100%";
+              // subtaskButton.style.borderRadius = "30px"; // Change font color to red
 
               // Set styles for positioning the subtask button
               subtaskButton.style.margin = "0px"; // Add margin to the left of the subtask button
@@ -322,36 +343,58 @@ function addTodo() {
               // listItem.appendChild(statusSpan);
               // listItem.appendChild(document.createElement("br"));
               // listItem.appendChild(dueDateTimeSpan);
-              listItem.appendChild(document.createElement("br")); // Add line break
-              listItem.appendChild(openingHoursSpan);
-              listItem.appendChild(hoursButton);
-              listItem.appendChild(document.createElement("br")); // Add line break
-              listItem.appendChild(callButton); // Add call button
-              listItem.appendChild(document.createElement("br")); // Add line break // Add line break
-              listItem.appendChild(directionsButton);
+              // listItem.appendChild(document.createElement("br")); // Add line break
+              // listItem.appendChild(openingHoursSpan);
+              // listItem.appendChild(hoursButton);
+              // listItem.appendChild(document.createElement("br")); // Add line break
+              // listItem.appendChild(callButton); // Add call button
+              // listItem.appendChild(document.createElement("br")); // Add line break // Add line break
+              // listItem.appendChild(directionsButton);
               listItem.appendChild(document.createElement("br")); // Add line break // Add line break
               listItem.appendChild(subtaskButton);
               listItem.appendChild(document.createElement("br")); // Add line break // Add line break
               listItem.appendChild(deleteButton);
+              listItem.appendChild(document.createElement("br")); // Add line break // Add line break
+              listItem.appendChild(completeButton);
 
               // Add event listener to toggle line-through and move to completed list on click
-              listItem.addEventListener("click", function (event) {
-                // Check if the clicked element is not a subtask item
-                if (
-                  !event.target.closest(".subtask-button") &&
-                  event.target !== hoursButton &&
-                  event.target !== callButton &&
-                  event.target !== directionsButton
-                ) {
-                  if (activeList.contains(listItem)) {
-                    activeList.removeChild(listItem);
-                    completedList.appendChild(listItem);
-                  } else {
-                    completedList.removeChild(listItem);
-                    activeList.appendChild(listItem);
-                  }
-                  listItem.classList.toggle("completed");
+              //NOTE code below not working because depending on where the user clicks, the target of the event changes
+              // listItem.addEventListener("click", function (event) {
+              //   event.stopImmediatePropagation();
+              //   console.log("event.target", event.target);
+              //   // Check if the clicked element is not a subtask item or one of the three buttons
+              //   if (
+              //     event.target !== hoursButton &&
+              //     event.target !== callButton &&
+              //     event.target !== directionsButton
+              //   ) {
+              //     console.log("hoursButton", hoursButton);
+              //     if (activeList.contains(listItem)) {
+              //       activeList.removeChild(listItem);
+              //       completedList.appendChild(listItem);
+              //     } else {
+              //       completedList.removeChild(listItem);
+              //       activeList.appendChild(listItem);
+              //     }
+              //     listItem.classList.toggle("completed");
+              //   }
+              //   if (event.target === hoursButton) {
+              //     console.log("hoursButton", hoursButton);
+              //     alert("you clicked the hours");
+              //   }
+              // });
+
+              completeButton.addEventListener("click", () => {
+                if (activeList.contains(listItem)) {
+                  activeList.removeChild(listItem);
+                  completedList.appendChild(listItem);
+                  completeButton.textContent = "Undo Complete Task"; // Change button text to "Uncomplete"
+                } else {
+                  completedList.removeChild(listItem);
+                  activeList.appendChild(listItem);
+                  completeButton.textContent = "Complete Task"; // Change button text back to "Completed"
                 }
+                listItem.classList.toggle("completed");
               });
 
               // Add the list item to the active list
@@ -417,32 +460,47 @@ function getPlaceStatus(openingHours) {
 function showActive() {
   const todoList = document.getElementById("todoList");
   const completedList = document.getElementById("completedList");
-  const groupList = document.getElementById("groupList");
+  // const groupList = document.getElementById("groupList");
   // const groupParagraph = document.getElementById("groupParagraph");
+
+  const todoListHeader = document.getElementById("activeButton");
+  const completedListHeader = document.getElementById("completedButton");
 
   todoList.style.display = "block";
   completedList.style.display = "none";
-  groupList.style.display = "block";
+  // groupList.style.display = "block";
   // groupParagraph.style.display = "none";
 
   //Board Display details
   createTask.style.display = "block";
+
+  todoListHeader.classList.add("active-header");
+  completedListHeader.classList.remove("active-header");
 }
 
 // Function to show completed list
 function showCompleted() {
   const todoList = document.getElementById("todoList");
   const completedList = document.getElementById("completedList");
-  const groupList = document.getElementById("groupList");
+  // const groupList = document.getElementById("groupList");
+
+  const todoListHeader = document.getElementById("activeButton");
+  const completedListHeader = document.getElementById("completedButton");
 
   //Unordered List Display details
   todoList.style.display = "none";
   completedList.style.display = "block";
-  groupList.style.display = "block";
+  // groupList.style.display = "block";
 
   //Board Display details //
   createTask.style.display = "block";
+
+  todoListHeader.classList.remove("active-header");
+  completedListHeader.classList.add("active-header");
 }
+
+// Call showActive() when the page is loaded
+window.onload = showActive;
 
 // Function to show completed list
 function switchToListGroup() {
@@ -451,16 +509,22 @@ function switchToListGroup() {
   const groupList = document.getElementById("groupList");
   const createTask = document.getElementById("createTask");
 
+  const todoListHeader = document.getElementById("activeButton");
+  const completedListHeader = document.getElementById("completedButton");
+
   // const groupParagraph = document.getElementById("groupParagraph");
 
   //Unordered List Display details
   todoList.style.display = "none";
   completedList.style.display = "none";
-  groupList.style.display = "block";
+  // groupList.style.display = "block";
   // groupParagraph.style.display = "block";
 
   //Board Display details //
   createTask.style.display = "none";
+
+  completedListHeader.classList.add("active-header");
+  todoListHeader.classList.remove("active-header");
 }
 
 // // Function to switch to "todo" list

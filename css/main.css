@@ -4,7 +4,11 @@
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 0; 
+}
+
+.active-header {
+  font-weight: bold;
 }
 
 .background {
@@ -26,18 +30,19 @@ body {
 }
 
 .logo {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   justify-content: center;
   margin-right: 15px; /* Add margin to create space between the logo and the header */
 }
 
 .Todolist-H1Header {
-  color: blue; /* Set text color to red */
-  font-size: 24px; /* Set font size */
+  color: black; /* Set text color to red */
+  font-size: 35px; /* Set font size */
   /* Add any other styles you want */
   font-family: 'Futura Bold', sans-serif; /* Apply Futura Bold font */
 }
+
 
 
 
@@ -54,10 +59,12 @@ body {
 .Headerbuttoncontainer button {
   /* Add your specific styles here */
   /* For example: */
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   width: 300px;
 }
+
+
 
 
 
@@ -91,7 +98,7 @@ body {
 .add-button {
   /* margin-right: 20px; */
   width: 240px;
-  background-color: #ff7700;
+  background-color: rgb(18, 184, 255);
 }
 
 .ThreeListcontainer {
@@ -211,9 +218,9 @@ overflow-y: auto;
 #completedList {
   position: fixed; /* Fix the position of the list */
   bottom: 0; /* Stick the list to the bottom of the viewport */
-  height: 70%; /* Set a maximum height for the container */
+  height: 60%; /* Set a maximum height for the container */
   overflow-y: auto; /* Add vertical scrollbar when content exceeds container height */
-  background-color: rgba(255, 255, 255, 0); /* Transparent white */
+  background-color: rgba(105, 88, 88, 0); /* Transparent white */
   width: 100%; /* Occupy the full width of the viewport */
   display: flex; /* Use flexbox to center the items horizontally */
   flex-direction: column;
@@ -282,10 +289,20 @@ overflow-y: auto;
   }
 }
 
+.complete-button {
+  border: none; /* Remove default button border */
+  padding: 15px; /* Add padding to the button */
+  background-color: orange; /* Set button background color */
+  color: #fff; /* Set text color to white */
+  cursor: pointer; /* Show pointer cursor on hover */
+  margin: 20px 0px;
+  width: 100%;
+}
+
 .subtask-button {
   border: none; /* Remove default button border */
   padding: 15px; /* Add padding to the button */
-  background-color: green; /* Set button background color */
+  background-color: rgb(18, 184, 255);
   color: #fff; /* Set text color to white */
   cursor: pointer; /* Show pointer cursor on hover */
   margin: 10px;
@@ -296,7 +313,73 @@ overflow-y: auto;
 #completedList li .subtask {
   /* position: fixed; Fix the position of the list */
 background-color: white;
-color: black;
+color: rgb(18, 184, 255);
+font-weight: bold;
+width: 90%;
 /* width: 80px; */
 /* overflow-y: auto; */
 }
+
+@media (max-width: 768px) {
+#todoList li .subtask,
+#completedList li .subtask {
+  /* position: fixed; Fix the position of the list */
+background-color: white;
+color: rgb(18, 184, 255);
+font-weight: bold;
+width: 85%;
+/* width: 80px; */
+/* overflow-y: auto; */
+}
+}
+
+
+.my-button-container {
+  display: flex;
+  justify-content: space-between; /* Distribute space between elements */
+  background-color: white;
+  height: 90px;
+  width: 100%;
+  padding: 0px; /* Add padding to the button container */
+  border-radius: 0px; /* Add border-radius */
+  margin: 20px 0px;
+}
+
+.my-button-container button {
+  flex-grow: 1; /* Allow buttons to grow equally */
+  border: none; /* Remove border */
+  border-radius: 50px; /* Make the button circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px; /* Set width to maintain a perfect circle */
+  height: 60px; /* Set height to maintain a perfect circle */
+  margin: 10px;
+}
+
+.my-button-container .hoursButton {
+  background-color: white; /* Add background color */
+  margin-right: auto; /* Push the first button to the left */
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+.my-button-container .callButton {
+  background-color: white; /* Add background color */
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+.my-button-container .directionsButton {
+  background-color: white; /* Add background color */
+  margin-left: auto; /* Push the last button to the right */
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+/* .my-button-container .deleteButton {
+  background-color: white; /* Add background color */
+  margin-left: auto; /* Push the last button to the right */
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+} */
+
