@@ -31,15 +31,15 @@ function initMap() {
 function addTodo() {
   const todoInput = document.getElementById("todoInput");
   const locationInput = document.getElementById("locationInput");
-  const dueDateInput = document.getElementById("dueDateInput");
-  const dueTimeInput = document.getElementById("dueTimeInput");
+  // const dueDateInput = document.getElementById("dueDateInput");
+  // const dueTimeInput = document.getElementById("dueTimeInput");
   const activeList = document.getElementById("todoList");
 
   // Get the value from the input field
   const todoText = todoInput.value.trim();
   const locationText = locationInput.value.trim();
-  const dueDate = dueDateInput.value;
-  const dueTime = dueTimeInput.value;
+  // const dueDate = dueDateInput.value;
+  // const dueTime = dueTimeInput.value;
 
   // If the input is not empty
   if (todoText !== "" && locationText !== "") {
@@ -64,6 +64,8 @@ function addTodo() {
 
               // Create a new list item
               const listItem = document.createElement("li");
+              // Add a class to the list item
+              listItem.classList.add("todo-item");
 
               // Create a span element for the todo text
               const todoSpan = document.createElement("span");
@@ -151,13 +153,9 @@ function addTodo() {
 
               // hoursButton.textContent = "Show/Hide Open Hours";
               hoursButton.innerHTML = `<img src="/images/stillon.jpg" alt="Show/Hide Open Hours" style="width: 40px; height: 40px;">`;
-              // hoursButton.style.backgroundColor = "green";
               hoursButton.style.width = "60px";
               hoursButton.style.height = "60px";
-              // hoursButton.style.display = "flex";
-              // hoursButton.style.flexDirection = "row";
-              // hoursButton.style.margin = "0px 5px";
-              hoursButton.classList.add("hoursButton");
+
               hoursButton.onclick = function () {
                 console.log("task display", openingHoursSpan.style.display);
                 openingHoursSpan.style.display =
@@ -168,15 +166,10 @@ function addTodo() {
               const callButton = document.createElement("button");
               // callButton.textContent = "Call Place";
               callButton.innerHTML = `<img src="/images/phonered.png" alt="Show/Hide Open Hours" style="width: 40px; height: 40px;">`;
-              // callButton.style.backgroundColor = "orange";
               callButton.classList.add("callButton");
 
               callButton.style.width = "60px";
               callButton.style.height = "60px";
-              // callButton.style.marginRight = "5px"; // Add right margin to create space between buttons
-              // callButton.style.display = "flex";
-              // callButton.style.flexDirection = "row";
-              // callButton.style.margin = "0px 5px";
 
               callButton.onclick = function () {
                 if (phoneNumber) {
@@ -192,12 +185,8 @@ function addTodo() {
               directionsButton.classList.add("directionsButton");
 
               directionsButton.innerHTML = `<img src="/images/directions.png" alt="Show/Hide Open Hours" style="width: 40px; height: 40px;">`;
-              // directionsButton.style.backgroundColor = "orange";
               directionsButton.style.width = "60px";
               directionsButton.style.height = "60px";
-              // directionsButton.style.display = "flex";
-              // directionsButton.style.flexDirection = "row";
-              // directionsButton.style.margin = "0px 5px";
 
               directionsButton.onclick = function () {
                 window.open(
@@ -214,64 +203,24 @@ function addTodo() {
               // Append the buttonsDiv to the listItem
               listItem.appendChild(buttonsDiv);
 
-              // Create a div to contain the buttons
-              // const buttonsDiv = document.createElement("div");
-              // buttonsDiv.style.display = "flex"; // Set display to flex to lay out children in a row
-              // buttonsDiv.style.marginTop = "10px"; // Add top margin to the buttons container
-              // // You can also assign a class name to the element
-              // // buttonsDiv.className = "my-button-container";
-              // buttonsDiv.classList.add("my-button-container");
-              // // Apply styles directly to the element
-
-              // buttonsDiv.style.backgroundColor = "pink";
-              // // buttonsDiv.style.color = "black";
-              // // buttonsDiv.style.paddingTop = "10px";
-              // // buttonsDiv.style.margin = "50px";
-              // // buttonsDiv.style.height = "150px";
-
-              // // Append buttons to the div
-              // buttonsDiv.appendChild(hoursButton);
-              // buttonsDiv.appendChild(callButton);
-              // buttonsDiv.appendChild(directionsButton);
-
-              // // Append the buttonsDiv to the listItem
-              // listItem.appendChild(buttonsDiv);
-
-              // // Append the div to the document body or any other container element
-              // document.body.appendChild(buttonsDiv);
-
-              // // Find the UL element where you want to append the buttonsDiv
-              // const ulElement = document.getElementById("todoList");
-
-              // // Append the buttonsDiv to the UL element
-              // ulElement.appendChild(buttonsDiv);
-
               // // Create a span element for the place status
-              // const statusSpan = document.createElement("span");
-              // statusSpan.textContent = "Status: " + placeStatusText;
-              // // Apply green color for "Open" status
-              // statusSpan.style.color =
-              //   placeStatusText === "Open"
-              //     ? "green"
-              //     : placeStatusText === "Closed"
-              //     ? "red"
-              //     : "inherit";
-
-              // // Apply styles directly using the style property
-              // statusSpan.style.backgroundColor = "white";
-              // statusSpan.style.padding = "10px";
-              // statusSpan.style.margin = "0px";
-              // statusSpan.style.width = "70%";
+              const statusSpan = document.createElement("span");
+              statusSpan.textContent = "Status: " + placeStatusText;
+              // Apply green color for "Open" status
+              statusSpan.style.color =
+                placeStatusText === "Open"
+                  ? "green"
+                  : placeStatusText === "Closed"
+                  ? "red"
+                  : "inherit";
 
               // Create a button for deleting the todo
               const deleteButton = document.createElement("button");
               deleteButton.textContent = "Delete Task";
               // deleteButton.textContent = "DELETE ❌";
-              // deleteButton.className = "deleteButton"; // Add CSS class to the button
 
-              deleteButton.style.backgroundColor = "red";
               deleteButton.classList.add("deleteButton");
-
+              deleteButton.style.backgroundColor = "red";
               // deleteButton.style.position = "absolute";
               deleteButton.style.top = "0"; // Align to the top of the parent element
               deleteButton.style.right = "0"; // Align to the right of the parent element
@@ -279,8 +228,6 @@ function addTodo() {
               deleteButton.style.margin = "20px 0px 0px 0px"; // Add margin to create space between the button and the edges
               deleteButton.style.width = "100%";
               // deleteButton.style.borderRadius = "30px"; // Change font color to red
-
-              // deleteButton.style.height = "40px";
 
               deleteButton.onclick = function () {
                 listItem.parentElement.removeChild(listItem);
@@ -337,52 +284,17 @@ function addTodo() {
               // Append the todo text, delete button, and subtask button to the list item
               listItem.appendChild(todoSpan);
               listItem.appendChild(document.createElement("br")); // Add line break
-              // listItem.appendChild(locationSpan);
               listItem.appendChild(addressSpan);
               // listItem.appendChild(document.createElement("br"));
               // listItem.appendChild(statusSpan);
               // listItem.appendChild(document.createElement("br"));
               // listItem.appendChild(dueDateTimeSpan);
-              // listItem.appendChild(document.createElement("br")); // Add line break
-              // listItem.appendChild(openingHoursSpan);
-              // listItem.appendChild(hoursButton);
-              // listItem.appendChild(document.createElement("br")); // Add line break
-              // listItem.appendChild(callButton); // Add call button
-              // listItem.appendChild(document.createElement("br")); // Add line break // Add line break
-              // listItem.appendChild(directionsButton);
               listItem.appendChild(document.createElement("br")); // Add line break // Add line break
               listItem.appendChild(subtaskButton);
               listItem.appendChild(document.createElement("br")); // Add line break // Add line break
               listItem.appendChild(deleteButton);
               listItem.appendChild(document.createElement("br")); // Add line break // Add line break
               listItem.appendChild(completeButton);
-
-              // Add event listener to toggle line-through and move to completed list on click
-              //NOTE code below not working because depending on where the user clicks, the target of the event changes
-              // listItem.addEventListener("click", function (event) {
-              //   event.stopImmediatePropagation();
-              //   console.log("event.target", event.target);
-              //   // Check if the clicked element is not a subtask item or one of the three buttons
-              //   if (
-              //     event.target !== hoursButton &&
-              //     event.target !== callButton &&
-              //     event.target !== directionsButton
-              //   ) {
-              //     console.log("hoursButton", hoursButton);
-              //     if (activeList.contains(listItem)) {
-              //       activeList.removeChild(listItem);
-              //       completedList.appendChild(listItem);
-              //     } else {
-              //       completedList.removeChild(listItem);
-              //       activeList.appendChild(listItem);
-              //     }
-              //     listItem.classList.toggle("completed");
-              //   }
-              //   if (event.target === hoursButton) {
-              //     console.log("hoursButton", hoursButton);
-              //     alert("you clicked the hours");
-              //   }
-              // });
 
               completeButton.addEventListener("click", () => {
                 if (activeList.contains(listItem)) {
@@ -403,8 +315,8 @@ function addTodo() {
               // Clear the input fields
               todoInput.value = "";
               locationInput.value = "";
-              dueDateInput.value = "";
-              dueTimeInput.value = "";
+              // dueDateInput.value = "";
+              // dueTimeInput.value = "";
 
               // Calculate time until due date and time
               const dueDateTime = new Date(`${dueDate}T${dueTime}`);
@@ -461,7 +373,6 @@ function showActive() {
   const todoList = document.getElementById("todoList");
   const completedList = document.getElementById("completedList");
   // const groupList = document.getElementById("groupList");
-  // const groupParagraph = document.getElementById("groupParagraph");
 
   const todoListHeader = document.getElementById("activeButton");
   const completedListHeader = document.getElementById("completedButton");
@@ -469,7 +380,6 @@ function showActive() {
   todoList.style.display = "block";
   completedList.style.display = "none";
   // groupList.style.display = "block";
-  // groupParagraph.style.display = "none";
 
   //Board Display details
   createTask.style.display = "block";
@@ -506,19 +416,16 @@ window.onload = showActive;
 function switchToListGroup() {
   const todoList = document.getElementById("todoList");
   const completedList = document.getElementById("completedList");
-  const groupList = document.getElementById("groupList");
+  // const groupList = document.getElementById("groupList");
   const createTask = document.getElementById("createTask");
 
   const todoListHeader = document.getElementById("activeButton");
   const completedListHeader = document.getElementById("completedButton");
 
-  // const groupParagraph = document.getElementById("groupParagraph");
-
   //Unordered List Display details
   todoList.style.display = "none";
   completedList.style.display = "none";
   // groupList.style.display = "block";
-  // groupParagraph.style.display = "block";
 
   //Board Display details //
   createTask.style.display = "none";

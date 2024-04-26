@@ -377,9 +377,7 @@ width: 85%;
 
 }
 
-/* .my-button-container .deleteButton {
-  background-color: white; /* Add background color */
-  margin-left: auto; /* Push the last button to the right */
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-} */
+.completed {
+  text-decoration: line-through;
+}
 
