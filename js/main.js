@@ -69,21 +69,17 @@ function addTodo() {
 
               // Create a span element for the todo text
               const todoSpan = document.createElement("span");
-              // todoSpan.textContent = todoText;
               todoSpan.textContent = `Todo: ${todoText}`;
               // todoSpan.textContent = `${todoText} (${placeStatusText})`;
               // Apply styles
               todoSpan.style.fontWeight = "bold"; // Example style
               todoSpan.style.fontSize = "25px"; // Example style
               todoSpan.style.color = "black"; // Change font color to red
-
-              // Apply styles directly using the style property
               todoSpan.style.backgroundColor = "none";
               todoSpan.style.padding = "0px";
               todoSpan.style.width = "100%";
               todoSpan.style.margin = "0px"; // Add margin to create space between todo text and location text
               todoSpan.style.display = "block"; // Display as block element to prevent overlapping
-              todoSpan.style.fontWeight = "bold"; // Make the text bold
 
               // Create a span element for the location details (name and address)
               const placeName = placeResult.name; // Get the name of the place
@@ -95,11 +91,9 @@ function addTodo() {
               // Apply styles directly using the style property
               addressSpan.style.backgroundColor = "none";
               addressSpan.style.padding = "0px";
-              // addressSpan.style.margin = "5px 0px";
               addressSpan.style.width = "100%";
               addressSpan.style.margin = "0px"; // Add margin to create space between todo text and location text
               addressSpan.style.display = "block"; // Display as block element to prevent overlapping
-              // addressSpan.style.fontWeight = "bold"; // Make the text bold
               addressSpan.style.fontSize = "20px"; // Example style
               addressSpan.style.color = "black"; // Change font color to red
               // // Create a span element for the due date and time
@@ -231,12 +225,12 @@ function addTodo() {
 
               deleteButton.onclick = function () {
                 listItem.parentElement.removeChild(listItem);
-                removeMarker(formattedAddress);
+                // removeMarker(formattedAddress);
               };
 
               // Create a button for deleting the todo
               const completeButton = document.createElement("button");
-              completeButton.textContent = "Complete Task";
+              completeButton.textContent = "Complete Task ✓";
               completeButton.className = "complete-button"; // Add CSS class to the button
 
               // // Create a button for adding subtask
@@ -245,8 +239,6 @@ function addTodo() {
               subtaskButton.className = "subtask-button"; // Add CSS class to the button
               subtaskButton.style.width = "100%";
               // subtaskButton.style.borderRadius = "30px"; // Change font color to red
-
-              // Set styles for positioning the subtask button
               subtaskButton.style.margin = "0px"; // Add margin to the left of the subtask button
               // subtaskButton.style.border = "none"; // Removes default button border
 
@@ -300,7 +292,7 @@ function addTodo() {
                 if (activeList.contains(listItem)) {
                   activeList.removeChild(listItem);
                   completedList.appendChild(listItem);
-                  completeButton.textContent = "Undo Complete Task"; // Change button text to "Uncomplete"
+                  completeButton.textContent = "Undo Complete Task ✓"; // Change button text to "Uncomplete"
                 } else {
                   completedList.removeChild(listItem);
                   activeList.appendChild(listItem);
@@ -413,26 +405,26 @@ function showCompleted() {
 window.onload = showActive;
 
 // Function to show completed list
-function switchToListGroup() {
-  const todoList = document.getElementById("todoList");
-  const completedList = document.getElementById("completedList");
-  // const groupList = document.getElementById("groupList");
-  const createTask = document.getElementById("createTask");
+// function switchToListGroup() {
+//   const todoList = document.getElementById("todoList");
+//   const completedList = document.getElementById("completedList");
+//   // const groupList = document.getElementById("groupList");
+//   const createTask = document.getElementById("createTask");
 
-  const todoListHeader = document.getElementById("activeButton");
-  const completedListHeader = document.getElementById("completedButton");
+//   const todoListHeader = document.getElementById("activeButton");
+//   const completedListHeader = document.getElementById("completedButton");
 
-  //Unordered List Display details
-  todoList.style.display = "none";
-  completedList.style.display = "none";
-  // groupList.style.display = "block";
+//   //Unordered List Display details
+//   todoList.style.display = "none";
+//   completedList.style.display = "none";
+//   // groupList.style.display = "block";
 
-  //Board Display details //
-  createTask.style.display = "none";
+//   //Board Display details //
+//   createTask.style.display = "none";
 
-  completedListHeader.classList.add("active-header");
-  todoListHeader.classList.remove("active-header");
-}
+//   completedListHeader.classList.add("active-header");
+//   todoListHeader.classList.remove("active-header");
+// }
 
 // // Function to switch to "todo" list
 // function switchToListTodo() {
